@@ -6,7 +6,6 @@ p, blockquote, pre, hr,
 dl, dd, ol, ul, figure {
   margin: 0;
   padding: 0;
-  max-with: 150px;
 }
 
 
@@ -18,6 +17,7 @@ body {
   font-family: $base-font-family;
   font-weight: $base-font-weight;
   font-size: #{$base-font-size};
+  font-display: swap;
   line-height: #{$base-line-height};
   color: $text-color;
   background-color: $background-color;
