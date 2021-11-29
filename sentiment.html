@@ -30,7 +30,14 @@ There exist multiple sentiment analysis models, all for different purpis and eac
   relationship, i.e. classifying based on full sentence structure. The Vader sentiment model calculates and returns the probability of a given input sentence to be 
   positive, negative, and neutral. For example:“The song is great!”gives the score: positive= 0.9, neutral = 0.1 and negative = 0.  
   These three probabilities will always add up to 1. Furthermore the Vader sentiment calculates a compound score which is an aggregated normalizedscore with −1 being 
-  the most negative and +1 the most positive. 
+  the most negative and +1 the most positive. To classify a song as positive, neutral or negative the Vader sentiment model provides a threshold on the compound score
+  see xxx for detailed describtion of the Vader model. The diviation of the class is as followed:
+  
+  positive: compound >=0.5
+  neutral: -0,5<compound<0.5
+  negative: compound=<-0.5
+                           
+  The classification of the sentiment can be seen below. 
   
 </p>
 
@@ -38,8 +45,13 @@ There exist multiple sentiment analysis models, all for different purpis and eac
 <h2>Sentiment distribution</h2>
 
 <p>
+Based on the thresholds for the sentiment score each song is classified as negative, neutral or positve. The distribution of the classes can be seen below.
+  
+</p>
 
-  a
+
+<p>
+There are very few songs classified as neutral this ....
   
 </p>
 
