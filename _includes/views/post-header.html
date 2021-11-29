@@ -1,6 +1,10 @@
 <header class="post-header">
   <h1 class="post-title p-name" itemprop="name headline">{{ heading | default: page.title | escape }}</h1>
   <h2 class="post-subtitle">{{ subheading | default: page.subtitle }}</h2>
+    
+  {% if page.banner == nil %}
+    {% assign banner = page.title %}
+  {% endif %}
 
 
     {% assign article = page.content %}
