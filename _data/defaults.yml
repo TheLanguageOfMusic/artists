@@ -1,4 +1,4 @@
 home:
-  heading: 'The Language of Music'
-  subheading: 'testing'
-  banner: "/assets/banners/home2.jpeg"
+  heading: "Your awesome heading"
+  subheading: "Your awesome subheading"
+  banner: "Your image url"
