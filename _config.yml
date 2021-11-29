@@ -34,7 +34,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Social Graphs project at DTU, Fall 2021. The project is a network analysis of different music artist and their songs.
   
 baseurl: "artists" # the subpath of your site, e.g. /blog
-url: "https://thelanguageofmusic.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
 favicon: "" # the favicon for your site
 
 # Yat date format
