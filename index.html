@@ -10,11 +10,6 @@ subheading: 'Network analysis of music artists'
 ---
 
 
- {% if site.show_downloads %}
-      <a href="https://nbviewer.org/github/TheLanguageOfMusic/SocialGraphs/blob/main/code/project_julius.ipynb" class="btn">Explainer Notebook</a>
-      <a href="https://drive.google.com/drive/folders/121j5cVK8jS9F-RIRD84YaGZYDMvBw0IM?usp=sharing" class="btn">Get Data</a>
- {% endif %}
-
 <h1> What is this page about? </h1>
 
 <p> This project investigates the relationship and specific traits found in the music industri. 
@@ -46,5 +41,12 @@ we believe that we can uncover quite a lot of hidden secrets within the branch o
 
 <h1>Dataset </h1>
 <p>
-  bla bla bla
+  We are using the wikipedia list of important artists within each genre to limit the scope of artists in the network. 
+ After that we are using the genius API to extract the necesary data and link the artists based on the collaborations they've had on songs. 
+ We're using the amount of collaboration between two artists as the weight of the link, and we are adding five attributes to each node: 
+ Popularity, followers, twitter-handle, subgenre and instagram-name.
+Read more about the dataset and the lyrics and attribute cleaning in the explainer notebook 
+ <a href="https://nbviewer.org/github/TheLanguageOfMusic/SocialGraphs/blob/main/code/project_julius.ipynb" class="btn">Explainer Notebook</a>
+ 
+ or chech out the data used  here   <a href="https://drive.google.com/drive/folders/121j5cVK8jS9F-RIRD84YaGZYDMvBw0IM?usp=sharing" class="btn">Get Data</a>
 </p>
