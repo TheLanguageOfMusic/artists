@@ -133,7 +133,6 @@ header_pages:
    - index.html
    - archives.html
    - categories.html
-   - tags.html
    - about.html
    - sentiment.html
    - topicmodeling.html
