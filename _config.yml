@@ -134,6 +134,7 @@ header_pages:
    - archives.html
    - categories.html
    - about.html
+   - network.html
    - sentiment.html
    - topicmodeling.html
 
