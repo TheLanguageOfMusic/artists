@@ -25,6 +25,7 @@
 # in the templates via {{ site.myvariable }}.
 
 theme: jekyll-theme-yat
+show_downloads: true
 
 title: The Language of Music
 email: s184288@student.dtu.dk
@@ -128,7 +129,7 @@ brand_color: greenblue
 #   text_transform: "uppercase"  # ("uppercase", "lowercase", "capitalize")
 
 # If you want to link only specific pages in your header, uncomment
-# this and add the path to the pages in order as they should show up
+# this and add the path to the pages in order as they should up
 header_pages:
    - index.html
    - about.html
