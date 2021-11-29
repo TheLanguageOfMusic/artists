@@ -8,14 +8,29 @@ subheading: 'What are the sentiment of the songs we listen to?'
 
 <h2>Sentiment analysis goal</h2>
 <p>
-For the sentiment analysis 
+The purpose of this study is to investigate
   
 </p>
 
 
 <h2>Sentiment tools</h2>
 <p>
-For the sentiment analysis 
+Sentiment analysis is a machine learning technique capable of understanding the tone that underlie a 
+  text and thus classify the spoken human language as positive, neutral or negative.  When analysing language data, a model should ideally takelinguistics, 
+  word ambiguity, negation, capitalization, emojis, context, symbolism and sarcasminto account to capture meaningful microsignals within language patterns 
+  and subsequentlydetermine the relative positivity or negativity of written text. An example of how the sentiment analysis should be able to capture 
+  negations can be seen in the sentence ”I do not like you.”, the word like is treated as a positive verb however,
+  due to the linguistic structure, the proceeding phrase ”I do not” yields negation of like, hence a negative sentence polarity.
+ </p>
+
+<p>
+There exist multiple sentiment analysis models, all for different purpis and each with their stregnth and weaknesses. Due to the often extream word used in lyrics
+  the choosen model is Vader. Vader(Valence Aware Dictionary for Sentiment Reasoning), is trained on social media data and is thus naturally attuned to sentiments 
+  expressed in this context, including both polarity, intensity (”!!!”), emoticons (”:-/”), acronyms (”LOL”) and slang.  The model relies on word-order sensitive 
+  relationship, i.e. classifying based on full sentence structure. The Vader sentiment model calculates and returns the probability of a given input sentence to be 
+  positive, negative, and neutral. For example:“The song is great!”gives the score: positive= 0.9, neutral = 0.1 and negative = 0.  
+  These three probabilities will always add up to 1. Furthermore the Vader sentiment calculates a compound score which is an aggregated normalizedscore with −1 being 
+  the most negative and +1 the most positive. 
   
 </p>
 
