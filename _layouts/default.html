@@ -4,6 +4,23 @@
   {%- include head.html -%}
 
   <body>
+    <script>
+    
+        {
+        box-sizing: border-box;
+    }
+    /* Set additional styling options for the columns*/
+    .column {
+    float: left;
+    width: 50%;
+    }
+
+    .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+      </script>
 
     {%- include views/header.html -%}
 
