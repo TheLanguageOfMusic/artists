@@ -39,8 +39,8 @@ There exist multiple sentiment analysis models, all for different purpose and ea
   positive, negative, and neutral. For example:“The song is great!” gives the score: positive= 0.9, neutral = 0.1 and negative = 0.  
   These three probabilities will always add up to 1. Furthermore the Vader sentiment calculates a compound score which is an aggregated normalized score with −1 being 
   the most negative and +1 the most positive. To classify a song as positive, neutral or negative the Vader sentiment model provides a threshold on the compound score,
-  see <a href="https://github.com/cjhutto/vaderSentiment">The Vader Sentiment Model</a> github page for detailed describtion of the model. 
-  The diviation of the classes is as followed:</p>
+  see <a href="https://github.com/cjhutto/vaderSentiment">The Vader Sentiment Model</a> github page for detailed describtion of the model and the thresholds. 
+  For this study we use the Vader sentiment classification which are as followed:</p>
   
 <p style="text-align:center;">
   positive: compound >=0.5 <br>
