@@ -23,7 +23,7 @@ So you in the future can chose you playlist depending on your mood.</p>
 <p>
 Sentiment analysis is a machine learning technique capable of understanding the tone that underlie a 
   text and thus classify the spoken human language as positive, neutral or negative.  When analysing language data, a model should ideally take linguistics, 
-  word ambiguity, negation, capitalization, emojis, context, symbolism and sarcasm into account to capture meaningful microsignals within language patterns 
+  word ambiguity, negation, capitalization, context, symbolism and sarcasm into account to capture meaningful microsignals within language patterns 
   and subsequently determine the relative positivity or negativity of written text. An example of how the sentiment analysis should be able to capture 
   negations can be seen in the sentence   <i>”I do not like you”</i>  the word <i>like</i> is treated as a positive verb however,
   due to the linguistic structure, the proceeding phrase <i>"I do not"</i> yields negation of <i>like</i>, hence a negative sentence polarity.
@@ -32,12 +32,9 @@ Sentiment analysis is a machine learning technique capable of understanding the 
 <p>
 There exist multiple sentiment analysis models, all for different purpose and each with their stregnth and weaknesses. Due to the often extream word used in songs
   the choosen model is Vader. Vader(Valence Aware Dictionary for Sentiment Reasoning), is trained on social media data and is thus naturally attuned to sentiments 
-  expressed in this context, including both polarity, intensity (”!!!”), emoticons (”:-/”), acronyms (”LOL”) and slang.  The model relies on word-order 
-  relationship, i.e. classifying based on full sentence structure. The Vader sentiment model calculates and returns the probability of a given input text to be 
-  positive, negative, and neutral. For example:“The song is great!” gives the score: positive= 0.9, neutral = 0.1 and negative = 0.  
-  These three probabilities will always add up to 1. Furthermore the Vader sentiment calculates a compound score which is an aggregated normalized score with −1 being 
-  the most negative and +1 the most positive. To classify a song as positive, neutral or negative the Vader sentiment model provides a threshold on the compound score,
-  see <a href="https://github.com/cjhutto/vaderSentiment">The Vader Sentiment Model</a> github page for detailed describtion of the model and the thresholds. 
+  expressed in this context, including both polarity, intensity (”!!!”), acronyms (”LOL”) and slang.  The model relies on word-order 
+  relationship, i.e. classifying based on full sentence structure. The Vader sentiment model calculates a sentiment score on the scale [−1;1] and then sets a
+  threshold to classify the text as positive, neutral or negative. See <a href="https://github.com/cjhutto/vaderSentiment">The Vader Sentiment Model</a> github page for detailed describtion of the model. 
   For this study we use the Vader sentiment classification which are as followed:</p>
   
 <p style="text-align:center;">
