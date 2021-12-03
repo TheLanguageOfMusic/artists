@@ -33,7 +33,7 @@ Sentiment analysis is a machine learning technique capable of understanding the 
 There exist multiple sentiment analysis models, all for different purpose and each with their stregnth and weaknesses. Due to the often extream word used in songs
   the choosen model is Vader. Vader(Valence Aware Dictionary for Sentiment Reasoning), is trained on social media data and is thus naturally attuned to sentiments 
   expressed in this context, including both polarity, intensity (”!!!”), acronyms (”LOL”) and slang.  The model relies on word-order 
-  relationship, i.e. classifying based on full sentence structure. The Vader sentiment model calculates a sentiment score on the scale [−1;1] and then sets a
+  relationship, i.e. classifying based on full sentence structure. The Vader sentiment model calculates a sentiment score(compound score) on the scale [−1;1] and then sets a
   threshold to classify the text as positive, neutral or negative. See <a href="https://github.com/cjhutto/vaderSentiment">The Vader Sentiment Model</a> github page for detailed describtion of the model. 
   For this study we use the Vader sentiment classification which are as followed:</p>
   
@@ -48,8 +48,9 @@ There exist multiple sentiment analysis models, all for different purpose and ea
 <h2>Sentiment distribution</h2>
 
 <p>
-It is interesting to investigate the overall sentiment for top listen songs. This gives an overall picture whether people like to listen to happy or sad songs. 
- Based on the thresholds for the sentiment score each song is classified as negative, neutral or positve. The distribution of the classes can be seen below.
+It is interesting to investigate the overall sentiment of the music industri to obtain an overall picture of whether people like to listen to happy or sad songs. 
+ The Vader sentiment analysis has been performed on the data.
+  The distribution of the classes can be seen below.
   
 </p>
 
@@ -61,17 +62,20 @@ It is interesting to investigate the overall sentiment for top listen songs. Thi
 
 
 <p>
-There are very few songs classified as neutral this indicates that music tent to have an extreame polariasied sentiment. Wheather it is very loving or extream angry.
-This gives an indication that music tries to avoke emotion within the listener. Furthermore the overall picture indicates that there are most postive songs. 
-  To further investigate this a sentiment analysis for each genre has ben made below to see if what kind of genre we chose to listen to has a specific sentiment indicator. 
-</p>
+There are very few songs classified as neutral this indicates that music tent to have an extreame polarised sentiment. Wheather it is very loving or extream angry.
+This gives an indication that music tries to avoke emotion within the listener. Furthermore the overall picture indicates that there are mostly postive songs. 
+  </p>
 
 
 <h2>Sentiment distribution pr genre</h2>
 
 <p>
-For a compareson between the genres a sentiment analysis for each genre has been caried out. The resulting classification of songs within each genre can be seen below. 
+For a compareson between the genres a sentiment analysis for each genre has been caried out. 
+  The resulting classification of songs within each genre can be seen below. 
   
+  
+
+
 </p>
 {% include sentimentgenre.html %}
 
@@ -79,7 +83,8 @@ For a compareson between the genres a sentiment analysis for each genre has been
 
 
 <p>
-It is clear to see that some genre tent to have more negative songs where others more positive. ..(skriv om hiphop fx)...
+It is clear to see that some genre tent to have more negative songs where others more positive. As expected hiphop(followed by rock) is the genre with the largest amount of negative songs.
+  Whereas RnB and pop is the genres with the most positive messages. There is a clear indication that depending on the genre we chose to listen to the tone we are exposed to is dependen thereon. 
 </p>
 
 <h2>Model evaluation</h2>
