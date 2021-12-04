@@ -34,7 +34,7 @@ Our study begins by looking at the most frequence words and see if some patterns
 <p>
 As a priliminary investigation of the lyrics we look at the most frequence words within all songs to investigate if some topics is revealed. <br> </p>
 
-<b> Top 10 most common words in the dataset</b>
+<p> Top 10 most common words in the dataset<br></p>
 
 
 <table>
@@ -102,22 +102,31 @@ Starting with the raw corpus of 12,647 unique words reduced to 2,810 words in th
 The four procedural steps are to be explained:
 </p>
 
-<b> 1. Noice:</b>
+<p> 1. Noice:</p>
+<p>
+First, a preliminary noise cleaning of the text data is carried out, in which all words are trans-formed into lowercase capitalization, 
+  ordinary stop-words such as ”the”, ”have” and ”should” are removed along with non-alphabetic characters (!?,.). 
+  It is followed by lemmatization to extract the dictionary form of all words. Below sentence exemplifies the text transformation through noise removal.
+</p>
+
+<p style="text-align:center;">
+  <img src="noise.png" >                                      
+</p>
+
+
+<p> 2. Rare and short words:</p>
+<p>
+A simple but efficient text cleaning step in terms of vocabulary reduction, is to remove rare and short words. 
+  All words that are only mentioned one time in the entire dataset of lyrics are deemed too unique and without importance, hence they are deleted. 
+  The same applies to words of only one character. 
+</p>
+
+<p> 3. Only noun, verb and adj:</p>
 <p>
 
 </p>
 
-<b> 2. Rare and short words:</b>
-<p>
-
-</p>
-
-<b> 3. Only noun, verb and adj:</b>
-<p>
-
-</p>
-
-<b> 4. Last cleaning:</b>
+<p> 4. Last cleaning:</p>
 <p>
 
 </p>
@@ -130,9 +139,21 @@ The four procedural steps are to be explained:
 h
 </p>
 
-<b> Top 10 most common words after cleaning</b>
+<p> Top 10 most common words after cleaning<br></p>
 
 <table>
+    <colgroup>
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+</colgroup>
   <tr>
      <th>Word</th>
     <td>love</td>
