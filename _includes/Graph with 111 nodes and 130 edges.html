@@ -1,0 +1,201 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 100%;
+            height: 500px;
+            background-color: white;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+        #loadingBar {
+            position:absolute;
+            top:0px;
+            left:0px;
+            width: 100%;
+            height: 500px;
+            background-color:rgba(200,200,200,0.8);
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -ms-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+            opacity:1;
+        }
+
+        #bar {
+            position:absolute;
+            top:0px;
+            left:0px;
+            width:20px;
+            height:20px;
+            margin:auto auto auto auto;
+            border-radius:11px;
+            border:2px solid rgba(30,30,30,0.05);
+            background: rgb(0, 173, 246); /* Old browsers */
+            box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+        }
+
+        #border {
+            position:absolute;
+            top:10px;
+            left:10px;
+            width:500px;
+            height:23px;
+            margin:auto auto auto auto;
+            box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+            border-radius:10px;
+        }
+
+        #text {
+            position:absolute;
+            top:8px;
+            left:530px;
+            width:30px;
+            height:50px;
+            margin:auto auto auto auto;
+            font-size:22px;
+            color: #000000;
+        }
+
+        div.outerBorder {
+            position:relative;
+            top:400px;
+            width:600px;
+            height:44px;
+            margin:auto auto auto auto;
+            border:8px solid rgba(0,0,0,0.1);
+            background: rgb(252,252,252); /* Old browsers */
+            background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+            background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+            border-radius:72px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+        }
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+<div id="loadingBar">
+    <div class="outerBorder">
+        <div id="text">0%</div>
+        <div id="border">
+            <div id="bar"></div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"font": {"color": "blue"}, "id": "Camu_Tao", "label": "Camu_Tao", "shape": "dot", "title": "Camu_Tao", "value": 1}, {"font": {"color": "blue"}, "id": "Cage_(rapper)", "label": "Cage_(rapper)", "shape": "dot", "title": "Cage_(rapper)", "value": 2}, {"font": {"color": "blue"}, "id": "Michael_Stipe", "label": "Michael_Stipe", "shape": "dot", "title": "Michael_Stipe", "value": 3}, {"font": {"color": "blue"}, "id": "U2", "label": "U2", "shape": "dot", "title": "U2", "value": 8}, {"font": {"color": "blue"}, "id": "Nirvana_(band)", "label": "Nirvana_(band)", "shape": "dot", "title": "Nirvana_(band)", "value": 8}, {"font": {"color": "blue"}, "id": "R.E.M.", "label": "R.E.M.", "shape": "dot", "title": "R.E.M.", "value": 3}, {"font": {"color": "blue"}, "id": "Z-Ro", "label": "Z-Ro", "shape": "dot", "title": "Z-Ro", "value": 2}, {"font": {"color": "blue"}, "id": "Mike_Dean_(record_producer)", "label": "Mike_Dean_(record_producer)", "shape": "dot", "title": "Mike_Dean_(record_producer)", "value": 5}, {"font": {"color": "blue"}, "id": "Slim_Thug", "label": "Slim_Thug", "shape": "dot", "title": "Slim_Thug", "value": 2}, {"font": {"color": "blue"}, "id": "Jay-Z", "label": "Jay-Z", "shape": "dot", "title": "Jay-Z", "value": 15}, {"font": {"color": "blue"}, "id": "Kanye_West", "label": "Kanye_West", "shape": "dot", "title": "Kanye_West", "value": 23}, {"font": {"color": "blue"}, "id": "Coldplay", "label": "Coldplay", "shape": "dot", "title": "Coldplay", "value": 5}, {"font": {"color": "blue"}, "id": "The_Alarm", "label": "The_Alarm", "shape": "dot", "title": "The_Alarm", "value": 1}, {"font": {"color": "blue"}, "id": "Bono", "label": "Bono", "shape": "dot", "title": "Bono", "value": 1}, {"font": {"color": "blue"}, "id": "Keane_(band)", "label": "Keane_(band)", "shape": "dot", "title": "Keane_(band)", "value": 2}, {"font": {"color": "blue"}, "id": "The_Killers", "label": "The_Killers", "shape": "dot", "title": "The_Killers", "value": 2}, {"font": {"color": "blue"}, "id": "Young_Dro", "label": "Young_Dro", "shape": "dot", "title": "Young_Dro", "value": 1}, {"font": {"color": "blue"}, "id": "T.I.", "label": "T.I.", "shape": "dot", "title": "T.I.", "value": 9}, {"font": {"color": "blue"}, "id": "Chris_Martin", "label": "Chris_Martin", "shape": "dot", "title": "Chris_Martin", "value": 3}, {"font": {"color": "blue"}, "id": "Avicii", "label": "Avicii", "shape": "dot", "title": "Avicii", "value": 3}, {"font": {"color": "blue"}, "id": "Richard_Ashcroft", "label": "Richard_Ashcroft", "shape": "dot", "title": "Richard_Ashcroft", "value": 2}, {"font": {"color": "blue"}, "id": "Travis_(band)", "label": "Travis_(band)", "shape": "dot", "title": "Travis_(band)", "value": 2}, {"font": {"color": "blue"}, "id": "Guided_by_Voices", "label": "Guided_by_Voices", "shape": "dot", "title": "Guided_by_Voices", "value": 1}, {"font": {"color": "blue"}, "id": "The_Breeders", "label": "The_Breeders", "shape": "dot", "title": "The_Breeders", "value": 2}, {"font": {"color": "blue"}, "id": "Rihanna", "label": "Rihanna", "shape": "dot", "title": "Rihanna", "value": 4}, {"font": {"color": "blue"}, "id": "Mike_Will_Made_It", "label": "Mike_Will_Made_It", "shape": "dot", "title": "Mike_Will_Made_It", "value": 1}, {"font": {"color": "blue"}, "id": "Jessica_Sanchez", "label": "Jessica_Sanchez", "shape": "dot", "title": "Jessica_Sanchez", "value": 1}, {"font": {"color": "blue"}, "id": "The-Dream", "label": "The-Dream", "shape": "dot", "title": "The-Dream", "value": 5}, {"font": {"color": "blue"}, "id": "The_Jesus_Lizard", "label": "The_Jesus_Lizard", "shape": "dot", "title": "The_Jesus_Lizard", "value": 2}, {"font": {"color": "blue"}, "id": "Therapy?", "label": "Therapy?", "shape": "dot", "title": "Therapy?", "value": 1}, {"font": {"color": "blue"}, "id": "The_Cranberries", "label": "The_Cranberries", "shape": "dot", "title": "The_Cranberries", "value": 1}, {"font": {"color": "blue"}, "id": "Ratatat", "label": "Ratatat", "shape": "dot", "title": "Ratatat", "value": 1}, {"font": {"color": "blue"}, "id": "Kid_Cudi", "label": "Kid_Cudi", "shape": "dot", "title": "Kid_Cudi", "value": 8}, {"font": {"color": "blue"}, "id": "Anderson_.Paak", "label": "Anderson_.Paak", "shape": "dot", "title": "Anderson_.Paak", "value": 1}, {"font": {"color": "blue"}, "id": "Bruno_Mars", "label": "Bruno_Mars", "shape": "dot", "title": "Bruno_Mars", "value": 2}, {"font": {"color": "blue"}, "id": "B.o.B", "label": "B.o.B", "shape": "dot", "title": "B.o.B", "value": 3}, {"font": {"color": "blue"}, "id": "Asher_Roth", "label": "Asher_Roth", "shape": "dot", "title": "Asher_Roth", "value": 2}, {"font": {"color": "blue"}, "id": "Big_Sean", "label": "Big_Sean", "shape": "dot", "title": "Big_Sean", "value": 4}, {"font": {"color": "blue"}, "id": "Jhen\u00e9_Aiko", "label": "Jhen\u00e9_Aiko", "shape": "dot", "title": "Jhen\u00e9_Aiko", "value": 3}, {"font": {"color": "blue"}, "id": "Hit-Boy", "label": "Hit-Boy", "shape": "dot", "title": "Hit-Boy", "value": 2}, {"font": {"color": "blue"}, "id": "Boldy_James", "label": "Boldy_James", "shape": "dot", "title": "Boldy_James", "value": 1}, {"font": {"color": "blue"}, "id": "Logic_(rapper)", "label": "Logic_(rapper)", "shape": "dot", "title": "Logic_(rapper)", "value": 2}, {"font": {"color": "blue"}, "id": "6ix_(record_producer)", "label": "6ix_(record_producer)", "shape": "dot", "title": "6ix_(record_producer)", "value": 1}, {"font": {"color": "blue"}, "id": "Sacario", "label": "Sacario", "shape": "dot", "title": "Sacario", "value": 1}, {"font": {"color": "blue"}, "id": "Angie_Martinez", "label": "Angie_Martinez", "shape": "dot", "title": "Angie_Martinez", "value": 2}, {"font": {"color": "blue"}, "id": "Chant\u00e9_Moore", "label": "Chant\u00e9_Moore", "shape": "dot", "title": "Chant\u00e9_Moore", "value": 1}, {"font": {"color": "blue"}, "id": "R._Kelly", "label": "R._Kelly", "shape": "dot", "title": "R._Kelly", "value": 4}, {"font": {"color": "blue"}, "id": "The_Feelies", "label": "The_Feelies", "shape": "dot", "title": "The_Feelies", "value": 1}, {"font": {"color": "blue"}, "id": "Thom_Yorke", "label": "Thom_Yorke", "shape": "dot", "title": "Thom_Yorke", "value": 1}, {"font": {"color": "blue"}, "id": "Swizz_Beatz", "label": "Swizz_Beatz", "shape": "dot", "title": "Swizz_Beatz", "value": 2}, {"font": {"color": "blue"}, "id": "Sparkle_(singer)", "label": "Sparkle_(singer)", "shape": "dot", "title": "Sparkle_(singer)", "value": 1}, {"font": {"color": "blue"}, "id": "Pusha_T", "label": "Pusha_T", "shape": "dot", "title": "Pusha_T", "value": 3}, {"font": {"color": "blue"}, "id": "070_Shake", "label": "070_Shake", "shape": "dot", "title": "070_Shake", "value": 2}, {"font": {"color": "blue"}, "id": "Pharrell_Williams", "label": "Pharrell_Williams", "shape": "dot", "title": "Pharrell_Williams", "value": 5}, {"font": {"color": "blue"}, "id": "Rhymefest", "label": "Rhymefest", "shape": "dot", "title": "Rhymefest", "value": 1}, {"font": {"color": "blue"}, "id": "Amil", "label": "Amil", "shape": "dot", "title": "Amil", "value": 2}, {"font": {"color": "blue"}, "id": "Memphis_Bleek", "label": "Memphis_Bleek", "shape": "dot", "title": "Memphis_Bleek", "value": 2}, {"font": {"color": "blue"}, "id": "Ronny_J", "label": "Ronny_J", "shape": "dot", "title": "Ronny_J", "value": 1}, {"font": {"color": "blue"}, "id": "Robin_Thicke", "label": "Robin_Thicke", "shape": "dot", "title": "Robin_Thicke", "value": 3}, {"font": {"color": "blue"}, "id": "Beyonc\u00e9", "label": "Beyonc\u00e9", "shape": "dot", "title": "Beyonc\u00e9", "value": 5}, {"font": {"color": "blue"}, "id": "Jessie_J", "label": "Jessie_J", "shape": "dot", "title": "Jessie_J", "value": 1}, {"font": {"color": "blue"}, "id": "John_Legend", "label": "John_Legend", "shape": "dot", "title": "John_Legend", "value": 4}, {"font": {"color": "blue"}, "id": "Lil_Dicky", "label": "Lil_Dicky", "shape": "dot", "title": "Lil_Dicky", "value": 1}, {"font": {"color": "blue"}, "id": "Trinidad_James", "label": "Trinidad_James", "shape": "dot", "title": "Trinidad_James", "value": 2}, {"font": {"color": "blue"}, "id": "Ricco_Barrino", "label": "Ricco_Barrino", "shape": "dot", "title": "Ricco_Barrino", "value": 1}, {"font": {"color": "blue"}, "id": "The_Verve", "label": "The_Verve", "shape": "dot", "title": "The_Verve", "value": 1}, {"font": {"color": "blue"}, "id": "Mykki_Blanco", "label": "Mykki_Blanco", "shape": "dot", "title": "Mykki_Blanco", "value": 1}, {"font": {"color": "blue"}, "id": "Teyana_Taylor", "label": "Teyana_Taylor", "shape": "dot", "title": "Teyana_Taylor", "value": 3}, {"font": {"color": "blue"}, "id": "Hole_(band)", "label": "Hole_(band)", "shape": "dot", "title": "Hole_(band)", "value": 1}, {"font": {"color": "blue"}, "id": "Courtney_Love", "label": "Courtney_Love", "shape": "dot", "title": "Courtney_Love", "value": 2}, {"font": {"color": "blue"}, "id": "Really_Doe_(rapper)", "label": "Really_Doe_(rapper)", "shape": "dot", "title": "Really_Doe_(rapper)", "value": 1}, {"font": {"color": "blue"}, "id": "Leah_LaBelle", "label": "Leah_LaBelle", "shape": "dot", "title": "Leah_LaBelle", "value": 1}, {"font": {"color": "blue"}, "id": "Lil\u0027_Ronnie", "label": "Lil\u0027_Ronnie", "shape": "dot", "title": "Lil\u0027_Ronnie", "value": 1}, {"font": {"color": "blue"}, "id": "Doe_B", "label": "Doe_B", "shape": "dot", "title": "Doe_B", "value": 1}, {"font": {"color": "blue"}, "id": "Dwele", "label": "Dwele", "shape": "dot", "title": "Dwele", "value": 1}, {"font": {"color": "blue"}, "id": "Brandon_Flowers", "label": "Brandon_Flowers", "shape": "dot", "title": "Brandon_Flowers", "value": 1}, {"font": {"color": "blue"}, "id": "Dot_da_Genius", "label": "Dot_da_Genius", "shape": "dot", "title": "Dot_da_Genius", "value": 1}, {"font": {"color": "blue"}, "id": "King_Chip", "label": "King_Chip", "shape": "dot", "title": "King_Chip", "value": 1}, {"font": {"color": "blue"}, "id": "Estelle_(musician)", "label": "Estelle_(musician)", "shape": "dot", "title": "Estelle_(musician)", "value": 1}, {"font": {"color": "blue"}, "id": "Common_(rapper)", "label": "Common_(rapper)", "shape": "dot", "title": "Common_(rapper)", "value": 3}, {"font": {"color": "blue"}, "id": "No_I.D.", "label": "No_I.D.", "shape": "dot", "title": "No_I.D.", "value": 3}, {"font": {"color": "blue"}, "id": "Floetry", "label": "Floetry", "shape": "dot", "title": "Floetry", "value": 1}, {"font": {"color": "blue"}, "id": "Dreezy", "label": "Dreezy", "shape": "dot", "title": "Dreezy", "value": 1}, {"font": {"color": "blue"}, "id": "Jennifer_Nettles", "label": "Jennifer_Nettles", "shape": "dot", "title": "Jennifer_Nettles", "value": 2}, {"font": {"color": "blue"}, "id": "Kristian_Bush", "label": "Kristian_Bush", "shape": "dot", "title": "Kristian_Bush", "value": 1}, {"font": {"color": "blue"}, "id": "Everclear_(band)", "label": "Everclear_(band)", "shape": "dot", "title": "Everclear_(band)", "value": 1}, {"font": {"color": "blue"}, "id": "Wizkid", "label": "Wizkid", "shape": "dot", "title": "Wizkid", "value": 1}, {"font": {"color": "blue"}, "id": "Jaz-O", "label": "Jaz-O", "shape": "dot", "title": "Jaz-O", "value": 1}, {"font": {"color": "blue"}, "id": "Rell_(singer)", "label": "Rell_(singer)", "shape": "dot", "title": "Rell_(singer)", "value": 1}, {"font": {"color": "blue"}, "id": "Aloe_Blacc", "label": "Aloe_Blacc", "shape": "dot", "title": "Aloe_Blacc", "value": 1}, {"font": {"color": "blue"}, "id": "Velous", "label": "Velous", "shape": "dot", "title": "Velous", "value": 1}, {"font": {"color": "blue"}, "id": "Lauryn_Hill", "label": "Lauryn_Hill", "shape": "dot", "title": "Lauryn_Hill", "value": 2}, {"font": {"color": "blue"}, "id": "Kid_Sister", "label": "Kid_Sister", "shape": "dot", "title": "Kid_Sister", "value": 1}, {"font": {"color": "blue"}, "id": "Nottz", "label": "Nottz", "shape": "dot", "title": "Nottz", "value": 1}, {"font": {"color": "blue"}, "id": "Kurt_Cobain", "label": "Kurt_Cobain", "shape": "dot", "title": "Kurt_Cobain", "value": 2}, {"font": {"color": "blue"}, "id": "Dinosaur_Jr.", "label": "Dinosaur_Jr.", "shape": "dot", "title": "Dinosaur_Jr.", "value": 2}, {"font": {"color": "blue"}, "id": "Lou_Barlow", "label": "Lou_Barlow", "shape": "dot", "title": "Lou_Barlow", "value": 1}, {"font": {"color": "blue"}, "id": "Twista", "label": "Twista", "shape": "dot", "title": "Twista", "value": 1}, {"font": {"color": "blue"}, "id": "Warryn_Campbell", "label": "Warryn_Campbell", "shape": "dot", "title": "Warryn_Campbell", "value": 2}, {"font": {"color": "blue"}, "id": "Mr_Hudson", "label": "Mr_Hudson", "shape": "dot", "title": "Mr_Hudson", "value": 2}, {"font": {"color": "blue"}, "id": "Rita_Ora", "label": "Rita_Ora", "shape": "dot", "title": "Rita_Ora", "value": 1}, {"font": {"color": "blue"}, "id": "Iggy_Azalea", "label": "Iggy_Azalea", "shape": "dot", "title": "Iggy_Azalea", "value": 3}, {"font": {"color": "blue"}, "id": "Desiigner", "label": "Desiigner", "shape": "dot", "title": "Desiigner", "value": 1}, {"font": {"color": "blue"}, "id": "Towkio", "label": "Towkio", "shape": "dot", "title": "Towkio", "value": 1}, {"font": {"color": "blue"}, "id": "Vic_Mensa", "label": "Vic_Mensa", "shape": "dot", "title": "Vic_Mensa", "value": 2}, {"font": {"color": "blue"}, "id": "Nivea_(singer)", "label": "Nivea_(singer)", "shape": "dot", "title": "Nivea_(singer)", "value": 1}, {"font": {"color": "blue"}, "id": "Uffie", "label": "Uffie", "shape": "dot", "title": "Uffie", "value": 1}, {"font": {"color": "blue"}, "id": "Donald_Glover", "label": "Donald_Glover", "shape": "dot", "title": "Donald_Glover", "value": 1}, {"font": {"color": "blue"}, "id": "Doughbeezy", "label": "Doughbeezy", "shape": "dot", "title": "Doughbeezy", "value": 1}, {"font": {"color": "blue"}, "id": "Mary_Mary", "label": "Mary_Mary", "shape": "dot", "title": "Mary_Mary", "value": 2}, {"font": {"color": "blue"}, "id": "Ruben_Studdard", "label": "Ruben_Studdard", "shape": "dot", "title": "Ruben_Studdard", "value": 1}]);
+        edges = new vis.DataSet([{"from": "Camu_Tao", "to": "Cage_(rapper)"}, {"from": "Michael_Stipe", "to": "U2"}, {"from": "Michael_Stipe", "to": "Nirvana_(band)"}, {"from": "Michael_Stipe", "to": "R.E.M."}, {"from": "Z-Ro", "to": "Mike_Dean_(record_producer)"}, {"from": "Z-Ro", "to": "Slim_Thug"}, {"from": "U2", "to": "Jay-Z"}, {"from": "U2", "to": "Kanye_West"}, {"from": "U2", "to": "Coldplay"}, {"from": "U2", "to": "The_Alarm"}, {"from": "U2", "to": "Bono"}, {"from": "U2", "to": "Keane_(band)"}, {"from": "U2", "to": "The_Killers"}, {"from": "Young_Dro", "to": "T.I."}, {"from": "Coldplay", "to": "Chris_Martin"}, {"from": "Coldplay", "to": "Avicii"}, {"from": "Coldplay", "to": "Richard_Ashcroft"}, {"from": "Coldplay", "to": "Travis_(band)"}, {"from": "Guided_by_Voices", "to": "The_Breeders"}, {"from": "Rihanna", "to": "Jay-Z"}, {"from": "Rihanna", "to": "Mike_Will_Made_It"}, {"from": "Rihanna", "to": "Jessica_Sanchez"}, {"from": "Rihanna", "to": "The-Dream"}, {"from": "The_Jesus_Lizard", "to": "Nirvana_(band)"}, {"from": "The_Jesus_Lizard", "to": "Therapy?"}, {"from": "The_Cranberries", "to": "Nirvana_(band)"}, {"from": "Ratatat", "to": "Kid_Cudi"}, {"from": "Anderson_.Paak", "to": "Bruno_Mars"}, {"from": "B.o.B", "to": "T.I."}, {"from": "B.o.B", "to": "Bruno_Mars"}, {"from": "B.o.B", "to": "Asher_Roth"}, {"from": "Big_Sean", "to": "Jhen\u00e9_Aiko"}, {"from": "Big_Sean", "to": "Hit-Boy"}, {"from": "Big_Sean", "to": "Boldy_James"}, {"from": "Big_Sean", "to": "Logic_(rapper)"}, {"from": "Logic_(rapper)", "to": "6ix_(record_producer)"}, {"from": "Keane_(band)", "to": "Travis_(band)"}, {"from": "Sacario", "to": "Angie_Martinez"}, {"from": "Chant\u00e9_Moore", "to": "R._Kelly"}, {"from": "R.E.M.", "to": "The_Feelies"}, {"from": "R.E.M.", "to": "Thom_Yorke"}, {"from": "Swizz_Beatz", "to": "Jay-Z"}, {"from": "Swizz_Beatz", "to": "Kanye_West"}, {"from": "Sparkle_(singer)", "to": "R._Kelly"}, {"from": "Pusha_T", "to": "Kanye_West"}, {"from": "Pusha_T", "to": "070_Shake"}, {"from": "Pusha_T", "to": "Pharrell_Williams"}, {"from": "Rhymefest", "to": "Kanye_West"}, {"from": "Amil", "to": "Jay-Z"}, {"from": "Amil", "to": "Memphis_Bleek"}, {"from": "Ronny_J", "to": "Kanye_West"}, {"from": "Robin_Thicke", "to": "Beyonc\u00e9"}, {"from": "Robin_Thicke", "to": "Jessie_J"}, {"from": "Robin_Thicke", "to": "John_Legend"}, {"from": "Lil_Dicky", "to": "Trinidad_James"}, {"from": "Ricco_Barrino", "to": "T.I."}, {"from": "The_Verve", "to": "Richard_Ashcroft"}, {"from": "Mykki_Blanco", "to": "Teyana_Taylor"}, {"from": "Hole_(band)", "to": "Courtney_Love"}, {"from": "Really_Doe_(rapper)", "to": "Kanye_West"}, {"from": "Leah_LaBelle", "to": "Pharrell_Williams"}, {"from": "Lil\u0027_Ronnie", "to": "R._Kelly"}, {"from": "R._Kelly", "to": "Jay-Z"}, {"from": "Doe_B", "to": "T.I."}, {"from": "Dwele", "to": "Kanye_West"}, {"from": "Brandon_Flowers", "to": "The_Killers"}, {"from": "Kid_Cudi", "to": "Jay-Z"}, {"from": "Kid_Cudi", "to": "Kanye_West"}, {"from": "Kid_Cudi", "to": "Dot_da_Genius"}, {"from": "Kid_Cudi", "to": "Cage_(rapper)"}, {"from": "Kid_Cudi", "to": "King_Chip"}, {"from": "Kid_Cudi", "to": "Nirvana_(band)"}, {"from": "Kid_Cudi", "to": "Mike_Dean_(record_producer)"}, {"from": "Teyana_Taylor", "to": "Kanye_West"}, {"from": "Teyana_Taylor", "to": "Pharrell_Williams"}, {"from": "Estelle_(musician)", "to": "Kanye_West"}, {"from": "Common_(rapper)", "to": "No_I.D."}, {"from": "Common_(rapper)", "to": "Floetry"}, {"from": "Common_(rapper)", "to": "Dreezy"}, {"from": "Jennifer_Nettles", "to": "John_Legend"}, {"from": "Jennifer_Nettles", "to": "Kristian_Bush"}, {"from": "Everclear_(band)", "to": "Nirvana_(band)"}, {"from": "Wizkid", "to": "Beyonc\u00e9"}, {"from": "Trinidad_James", "to": "T.I."}, {"from": "Chris_Martin", "to": "Jay-Z"}, {"from": "Chris_Martin", "to": "Avicii"}, {"from": "Jaz-O", "to": "Jay-Z"}, {"from": "Jay-Z", "to": "Beyonc\u00e9"}, {"from": "Jay-Z", "to": "Rell_(singer)"}, {"from": "Jay-Z", "to": "Angie_Martinez"}, {"from": "Jay-Z", "to": "Memphis_Bleek"}, {"from": "Jay-Z", "to": "T.I."}, {"from": "Jay-Z", "to": "Mike_Dean_(record_producer)"}, {"from": "Jay-Z", "to": "The-Dream"}, {"from": "The_Breeders", "to": "Nirvana_(band)"}, {"from": "Aloe_Blacc", "to": "Avicii"}, {"from": "Velous", "to": "Kanye_West"}, {"from": "No_I.D.", "to": "Kanye_West"}, {"from": "No_I.D.", "to": "Jhen\u00e9_Aiko"}, {"from": "Lauryn_Hill", "to": "John_Legend"}, {"from": "Lauryn_Hill", "to": "Kanye_West"}, {"from": "Kid_Sister", "to": "Kanye_West"}, {"from": "Nottz", "to": "Asher_Roth"}, {"from": "Nirvana_(band)", "to": "Kurt_Cobain"}, {"from": "Nirvana_(band)", "to": "Dinosaur_Jr."}, {"from": "Hit-Boy", "to": "Kanye_West"}, {"from": "Dinosaur_Jr.", "to": "Lou_Barlow"}, {"from": "Kanye_West", "to": "T.I."}, {"from": "Kanye_West", "to": "Mike_Dean_(record_producer)"}, {"from": "Kanye_West", "to": "The-Dream"}, {"from": "Kanye_West", "to": "John_Legend"}, {"from": "Kanye_West", "to": "070_Shake"}, {"from": "Kanye_West", "to": "Twista"}, {"from": "Kanye_West", "to": "Warryn_Campbell"}, {"from": "Kanye_West", "to": "Mr_Hudson"}, {"from": "Rita_Ora", "to": "Iggy_Azalea"}, {"from": "Kurt_Cobain", "to": "Courtney_Love"}, {"from": "Beyonc\u00e9", "to": "The-Dream"}, {"from": "Beyonc\u00e9", "to": "Iggy_Azalea"}, {"from": "Desiigner", "to": "Mike_Dean_(record_producer)"}, {"from": "Towkio", "to": "Vic_Mensa"}, {"from": "T.I.", "to": "Pharrell_Williams"}, {"from": "T.I.", "to": "Iggy_Azalea"}, {"from": "The-Dream", "to": "Nivea_(singer)"}, {"from": "Mr_Hudson", "to": "Vic_Mensa"}, {"from": "Pharrell_Williams", "to": "Uffie"}, {"from": "Jhen\u00e9_Aiko", "to": "Donald_Glover"}, {"from": "Doughbeezy", "to": "Slim_Thug"}, {"from": "Mary_Mary", "to": "Warryn_Campbell"}, {"from": "Mary_Mary", "to": "Ruben_Studdard"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": false,
+            "type": "continuous"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+        network.on("stabilizationProgress", function(params) {
+      		document.getElementById('loadingBar').removeAttribute("style");
+	        var maxWidth = 496;
+	        var minWidth = 20;
+	        var widthFactor = params.iterations/params.total;
+	        var width = Math.max(minWidth,maxWidth * widthFactor);
+
+	        document.getElementById('bar').style.width = width + 'px';
+	        document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+	    });
+	    network.once("stabilizationIterationsDone", function() {
+	        document.getElementById('text').innerHTML = '100%';
+	        document.getElementById('bar').style.width = '496px';
+	        document.getElementById('loadingBar').style.opacity = 0;
+	        // really clean the dom element
+	        setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+	    });
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
