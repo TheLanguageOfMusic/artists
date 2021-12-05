@@ -103,7 +103,7 @@ The four procedural steps are to be explained:
 </p>
 
 <p> &nbsp;&nbsp; 1. Noice</p>
-<p> &nbsp;&nbsp;
+<p> 
 First, a preliminary noise cleaning of the text data is carried out, in which all words are transformed into lowercase capitalization, 
   ordinary stop-words such as ”the”, ”have” and ”should” are removed along with non-alphabetic characters (!?,.). 
   It is followed by lemmatization to extract the dictionary form of all words. 
@@ -118,16 +118,17 @@ A simple but efficient text cleaning step in terms of vocabulary reduction, is t
 
 <p> &nbsp;&nbsp; 3. Only noun, verb and adj</p>
 <p>
-
+ All words that are not labeled ”noun”, ”verb” or "adj" are removed as it is expected that the nouns, verbs and adjectives carry most 
+  information on the message of a song.
 </p>
 
-<p> &nbsp;&nbsp; 4. Last cleaning</p>
+<p> &nbsp;&nbsp; 4. Meaningless words</p>
 <p>
-
+As the larst cleaning step we looked at the frequency words and removed words with no particulary meaning for the overall messages. This will help the model perform. 
 </p>
 
 <p>
-The text preprocessing of the corpus is now finalized,  where unimportant words have been removed. The cleaned data is not 
+The text cleaning of the lyrics is now finalized and unimportant words have been removed. The cleaned data is not 
  ready to be used as input for a topic model.  
 
 </p>
@@ -135,7 +136,7 @@ The text preprocessing of the corpus is now finalized,  where unimportant words 
 <h2>Frequency count after cleaning</h2>
 
 <p>
-It is of interest to examine the most frequent terms after the cleaning to detecting possible topics. 
+It is of interest to examine the most frequent terms after the cleaning to detecting if possible topics appears now. 
 </p>
 
 <p> Top 10 most common words after cleaning<br></p>
@@ -180,6 +181,10 @@ It is of interest to examine the most frequent terms after the cleaning to detec
     <td>159</td>
   </tr>
 </table>
+
+<p>
+  
+  </p>
 
 <h2>Topics</h2>
 
