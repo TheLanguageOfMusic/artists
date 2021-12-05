@@ -195,17 +195,76 @@ It is of interest to examine the most frequent terms after the cleaning to detec
 
 <p>
    The topic model is implemented to generate topics and label each song with the most appropriate topic.
-  Based on a measure of coherence,the model determines the most optimal number of topics to represent the data. </p>
+  Based on a measure of coherence,the model determines the most optimal number of topics to represent the data. <br></p>
   
   <p style="text-align:center;">
   <img src="cor.png" width="700" hight="500" >                                      
 </p>
   
   <p>
-  As per the coherence measure,n=3 topics yield the most optimal representation. 
-  
-  Below you see an interactive LDA visualizer, which has been used to examinegenerated the topics. The chart to the left illustrate how separated the classes are.
+  As per the coherence measure,n=6 topics yield the most optimal representation. 
+   The LDA generated topics cn be seen below including relevant keywords and their respective average sentiment score. </p>
+
+<table>
+    <colgroup>
+
+</colgroup>
+  <tr>
+     <th>Topic</th>
+<th>Keywords</th>
+    <th>Avg. sentiment score</th>
+    <th>Number of songs</th>
+  </tr>
+  <tr>
+    <td>569</td>
+    <td>400</td> 
+    <td>327</td>
+        <td>268</td>
+  </tr>
+    <tr>
+    <td>569</td>
+    <td>400</td> 
+    <td>327</td>
+        <td>268</td>
+  </tr>
+    <tr>
+    <td>569</td>
+    <td>400</td> 
+    <td>327</td>
+        <td>268</td>
+  </tr>
+    <tr>
+    <td>569</td>
+    <td>400</td> 
+    <td>327</td>
+        <td>268</td>
+  </tr>
+    <tr>
+    <td>569</td>
+    <td>400</td> 
+    <td>327</td>
+        <td>268</td>
+  </tr>
+    <tr>
+    <td>569</td>
+    <td>400</td> 
+    <td>327</td>
+        <td>268</td>
+  </tr>
+</table>
+
+<p>
+  The table above shows that topic x is the most negative topic and topic y is the most positive. Furthermore it can be seen that the largest topics within songs is hahah. 
 </p>
+  
+  <p>
+  Below you see an interactive LDA visualizer, which has been used to examine generated topics. The chart to the left illustrate how separated the classes are
+    whereas the chart to the right shows the words that reprsents the topics ordered by relevance depending on the tunable lambda-parameter. 
+    The λ-parameter represents the TF-IDF adjustment, which assigns less importance to words with high frequency count,
+    λ=1 corresponds to importance by term frequency. Decreasing the parameter yields less importance to more frequently used words.
+</p>
+
+
 
 <h2>Topics pr genre</h2>
 
