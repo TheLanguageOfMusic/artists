@@ -13,7 +13,8 @@ function LDAvis_load_lib(url, callback){
   s.async = true;
   s.onreadystatechange = s.onload = callback;
   s.onerror = function(){console.warn("failed to load library " + url);};
-  document.getElementsByTagName("head")[0].appendChild(s);
+  document.getElementsByTagName("head")[0].appendChild(s).style.width = "300px";
+
 }
 
 if(typeof(LDAvis) !== "undefined"){
