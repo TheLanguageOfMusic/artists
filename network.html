@@ -20,14 +20,34 @@ subheading: 'Which artics are connected?'
 <h2>The network</h2>
 <p>
  On the Data Desctiption page, it is explained in detail, how Wikipedia pages and Genius is used to collect information on each of the artists in the genres: 
- Pop, Hip Hop, RnB, Rock & Country. 
- 
- how it is done, with nodes and edges and something somthing about high density of connections, which makes the analysis and visualisation difficult. therefore backbone.
+ Pop, Hip Hop, RnB, Rock & Country. Below we see the first iteration of the network built. Here the Giant Connected Component (GCC) has been extracted to focus 
+ on the most interconnected artists. This is shown in the network visualization below. The network consists of almost 6000 nodes and more than 68000 links. 
 </p>
 
 <p style="text-align:center;">
 <img src="image/big_net.png" width=100% height="600">
 
+<p>
+ Due to the large number of nodes and links, it is close to impossible to the specific connections in the network. However, it is remarkable, that there is clear 
+ separation between the different genres. The top left part of the network is dominated by Hip Hop artists. The red and blue nodes, representing Rock and Country 
+ artists respectively, are equally isolated in different parts of the network graph. The RnB artists are located very close to the Hip Hop artist, which makes 
+ sense when relating it to the common conception about the similarities in these genres. Also, it has been discovered for the yellow nodes – namely, the artists 
+ contained in multiple genres – that most of these artist are exactly in both the Hip Hop and RnB categories. When it comes to the Pop artists, their position in 
+ the middle of the network graph also conceptually matches with the fact, that many Pop artists will use elements from different genres in order to “popular” for 
+ everyone. 
+ 
+ Next we look into the degree distribution of the network. In the figure below this is shown for each of the genres. If you want to compare the genres separately, then 
+ click the legend 
+</p>
+
+ {% include deg.html %}
+
+<p>
+ BLA BAL BLA
+</p>
+
+ {% include table_deg.html %}
+ 
 
 <h2>Backbone of the network</h2>
 <p>
