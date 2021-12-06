@@ -250,9 +250,14 @@ It is of interest to examine the most frequent terms after the cleaning to detec
   That the most positive topic also is the largest fits with the fact that the sentiment analysis showed most positive songs. 
 </p>
   
+
+<h2>Model evaluation</h2>
+
+
   <p>
-  Below you see an interactive LDA visualizer, which has been used to examine generated topics. The chart to the left illustrate how separated the classes are
-    whereas the chart to the right shows the words that reprsents the topics ordered by relevance depending on the tunable lambda-parameter. 
+  To evaluate the topic model performance we have used the below interactive LDA visualizer. Wirth this tool we have examine how themodel generated the topics. 
+    The chart to the left illustrate how separated the classes are
+    whereas the chart to the right shows the words that reprsents the topics ordered by relevance. The left chart depends on the tunable λ-parameter. 
     The λ-parameter represents the TF-IDF adjustment, which assigns less importance to words with high frequency count,
     λ=1 corresponds to importance by term frequency. Decreasing the parameter yields less importance to more frequently used words.
 </p>
@@ -261,13 +266,13 @@ It is of interest to examine the most frequent terms after the cleaning to detec
 {% include lda.html %}
 
 <p>
-  dldldl...
+ From the inteactive LDA visulaizer we discover that the four topic is nicely seperated, indicating that the cleaningprocess went well and the model has created some good topic to describe the data.
+  
 </p>
 
-<h2>Model evaluation</h2>
-
 <p>
-  dldldl...
+ Another way to evaluate the model performance is to look into some lyrics and evaluate if they have been classified correctly.  
+  We do  this py taking a random sample of 5 songs and determine if  they match the topic class they were put in. 
 </p>
 
 <h2>Topics pr genre</h2>
