@@ -17,11 +17,12 @@ The data has been downloaded by reading the list of artists for each genre using
 of the given genre. By using regular expression on the html files it is possible to extract and save the name of each artist into a pandas DataFrame. Hence this process
 results in a dataframe containing the list of all artists with the attributes <i>name, genre, name_ and link_name</i>. 
 Then it is possible to use the same wikipedia API to download the wikipedia page of every artist. 
-The downloaded wikipedia pages is then saved as txt files with the name of then given artist. 
+The downloaded wikipedia pages is then saved as .txt files with the link_name of then given artist. 
 <p>
 
 <p>
-After the retrieval of the wikipedia pages 
+After the retrieval of the wikipedia pages different attributes can be collected from the .txt files, e.g. information about origin, latitude, longitude and years_active can be  
+Furthermore the number of followers can be retrived by using the genius API. The final dataset ready for basic statistics and network analysis consists of the following attributes.  
 <p>
    
 <p>
