@@ -131,6 +131,7 @@ brand_color: greenblue
 # this and add the path to the pages in order as they should up
 header_pages:
    - index.html
+   - Data.html
    - network.html
    - sentiment.html
    - topicmodeling.html
