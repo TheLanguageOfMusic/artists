@@ -19,8 +19,8 @@ subheading: 'Which artics are connected?'
 
 <h2>The network</h2>
 <p>
- On the Data Desctiption page, it is explained in detail, how Wikipedia pages and Genius is used to collect information on each of the artists in the genres: 
- Pop, Hip Hop, RnB, Rock & Country. Below we see the first iteration of the network built. Here the Giant Connected Component (GCC) has been extracted to focus 
+ On the Data Description (LINK!!) page, it is explained in detail, how Wikipedia pages and Genius is used to collect information on each of the artists in the 
+ genres: Pop, Hip Hop, RnB, Rock & Country. Below we see the first iteration of the network built. Here the Giant Connected Component (GCC) has been extracted to focus 
  on the most interconnected artists. This is shown in the network visualization below. The network consists of almost 6000 nodes and more than 68000 links. 
 </p>
 
@@ -32,26 +32,35 @@ subheading: 'Which artics are connected?'
  separation between the different genres. The top left part of the network is dominated by Hip Hop artists. The red and blue nodes, representing Rock and Country 
  artists respectively, are equally isolated in different parts of the network graph. The RnB artists are located very close to the Hip Hop artist, which makes 
  sense when relating it to the common conception about the similarities in these genres. Also, it has been discovered for the yellow nodes – namely, the artists 
- contained in multiple genres – that most of these artist are exactly in both the Hip Hop and RnB categories. When it comes to the Pop artists, their position in 
- the middle of the network graph also conceptually matches with the fact, that many Pop artists will use elements from different genres in order to “popular” for 
- everyone. 
+ contained in multiple genres – that most of these artists are exactly in both the Hip Hop and RnB categories. When it comes to the Pop artists, their position in 
+ the middle of the network graph also conceptually matches with the fact, that many Pop artists will use elements from different genres to be “popular” for everyone.
  
- Next we look into the degree distribution of the network. In the figure below this is shown for each of the genres. If you want to compare the genres separately, then 
- click the legend 
+ Next we look into the degree distribution of the network. In the figure below this is shown for each of the genres. If you want to compare the genres separately, 
+ then click their respective name in the legend on the left. Also, keep in mind the total number of artists in each genre shown on the “Data” (LINK!!) page when 
+ looking at the scale-difference here.
 </p>
 
  {% include deg.html %}
 
 <p>
- BLA BAL BLA
+ The degree distribution of the genres seems most reminiscent of a power-law distribution, but the genres Hip Hop and Rock could also be fitted with a Poisson 
+ distribution. It is also noticeable that there clearly are a few artists in each category with a lot more links than the rest of the artists. To inspect these 
+ a bit more, the 15 most connected artists are shown in the table below. As it happens these names coincide with some of the most popular artists of all time.
 </p>
 
  {% include table_deg.html %}
+
+
+<p>
+ Even though there are clear more nodes with few connections than many, the average degree of the network is above 19. This, together with the fact that the 
+ network is visually very difficult to inspect, have led to a Backbone Analysis of the network.
+</p>
+
  
 
 <h2>Backbone of the network</h2>
 <p>
- how the edges are weighted, why we choose alpha = 0.1. Plot network, degree dist again. Artists per genre again.
+ how the edges are weighted, why we choose alpha = 0.1. Plot network, Maybe degree dist again. Maybe Artists per genre again.
 </p>
 
 <h2>Commuities</h2>
