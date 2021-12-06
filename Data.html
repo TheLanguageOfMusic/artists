@@ -34,8 +34,8 @@ Furthermore the number of followers can be retrived by using the genius API. The
 <thead>
 <tr class="header">
       <th>Attribute</th>
-      <th>Value</th> 
-      <th>Describtion</th>
+      <th>Type</th> 
+      <th>Description</th>
 </tr>
 </thead>
 <tbody>
@@ -44,15 +44,47 @@ Furthermore the number of followers can be retrived by using the genius API. The
     <td>str</td> 
     <td>-name of the artist as written in the wikipedia list</td>
 </tr>
+    <td>name_</td> 
+    <td>str</td> 
+    <td>-The name of the artist where spaces are replaced with underscore</td>
 <tr>
     <td>genre</td> 
     <td>str</td> 
     <td>-The genre that the artist belongs to. It is possible for an artist to be in multiple genres. In such cases this attribute will take on multiple values that are separated by comma.</td>
 </tr>
-  <tr>
-    <td>name_</td> 
+    <td>link_name</td> 
     <td>str</td> 
-    <td>-The name of the artist where spaces are replaced with underscore</td>
+    <td>This attribute takes the same value as the name_ attribute, with the exception of links that are redirected. When running the wikipedia API some of the
+      the values in the name_ attributes redirects to a wikipedia page with a different name.  </td>
+</tr>
+    <td>origin</td> 
+    <td>str</td> 
+    <td>The origin of the artist</td>
+</tr>
+    <td>lat</td> 
+    <td>float</td> 
+    <td>The latitude of the origin</td>
+</tr>
+      <td>lon</td> 
+    <td>float</td> 
+    <td>The longitude of the origin</td>
+</tr>
+      <td>start_year</td> 
+    <td>str</td> 
+    <td>The starting year of an artists carreer</td>
+</tr>
+   <td>end_year</td> 
+    <td>str</td> 
+    <td>The ending year of an artists carreer. The attribute will be equal to 'Present' if an artist is still active</td>
+</tr>
+</tr>
+   <td>genius_id</td> 
+    <td>str</td> 
+    <td>The artists id on Genius.</td>
+</tr>
+   <td>followers_count</td> 
+    <td>str</td> 
+    <td>The number of followers that an artist have on Genius</td>
 </tr>
 </tbody>
 </table>
