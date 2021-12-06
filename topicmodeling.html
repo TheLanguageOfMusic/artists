@@ -260,17 +260,16 @@ It is of interest to examine the most frequent terms after the cleaning to detec
 <h2>Model evaluation</h2>
 
 
-  <p>
+<p>
   To evaluate the topic model performance we have used the below interactive LDA visualizer. Wirth this tool we have examine how themodel generated the topics. 
-    The chart to the left illustrate how separated the classes are
+  The chart to the left illustrate how separated the classes are
     whereas the chart to the right shows the words that reprsents the topics ordered by relevance. The left chart depends on the tunable λ-parameter. 
     The λ-parameter represents the TF-IDF adjustment, which assigns less importance to words with high frequency count,
-    λ=1 corresponds to importance by term frequency. Decreasing the parameter yields less importance to more frequently used words.
+   λ=1 corresponds to importance by term frequency. Decreasing the parameter yields less importance to more frequently used words.
 </p>
 
 
 {% include lda.html %}
-
 
 
 <p>
