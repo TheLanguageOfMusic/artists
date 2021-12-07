@@ -113,13 +113,18 @@ subheading: 'Which artics are connected?'
 
 <h2>Commuities</h2>
 <p>
-Now that the network have been reduced greatly in both nodes and links, it will be easier to evaluate the communities in the network. As mentioned we want to look 
- into, how well the network that the  BLA BLA BLA.. noget om hvordan der findes comunitites (den der algo). + noget om hvilke communities der findes aka se nedenfor.
+ Now that the network only contains what we find to be the "important" links, the communities are found. This is done with the 
+ <a href="https://en.wikipedia.org/wiki/Louvain_method">Louvain algorithm</a>, which is an approximation algorithm that tries to maximize the 
+ modularity score <i>Q</i>. When implementet on the backbone network, we end up with 38 communities and a modularity score of <i>Q = 0.76</i>, which indicates 
+ a fairly good partition. In the bar chart below, the size of all communities are shown. The individual communities are named after the 3 nodes with the highest 
+ degree in the community.
 </p>
 
 {% include com_size.html %}
 
 <p>
+ As mentioned, a goal with this page is to study whether or not the communities compare to the some common conception about the artists 
+ relations. Therefore, the bar charts are split into the different genres,
  Mere om hvilke communities der ses ovenfor og hvordan de er fordelt ud på genre. Husk at nævne (igen) at der er færre i nogle genre end andre.
  + hertil viser vi plottet nedenfor bla bla. ihhh hvor er det fint. eksempler på ting der giver super mening
 </p>
