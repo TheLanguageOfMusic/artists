@@ -196,16 +196,18 @@ It is of interest to examine the most frequent terms after the cleaning to detec
 <h2>Topic Modeling</h2>
 
 <p>
-   The topic model is implemented to generate topics and label each song with the most appropriate topic.
-  Based on a measure of coherence,the model determines the most optimal number of topics to represent the data. <br></p>
+   The topic model is implemented to generate topics and label each song with the most appropriate topic. 
+  The model determines the optimal number of topics to represent the lyrics corpus based on
+   a measure of coherence. <br></p>
   
   <p style="text-align:center;">
   <img src="image/cor.png" width="700" hight="500" >                                      
 </p>
   
   <p>
-  As per the coherence measure,n=6 topics yield the most optimal representation. 
-   The LDA generated topics cn be seen below including relevant keywords and their respective average sentiment score. </p>
+    From the coherence measure the optimal number of topics is n=4.
+
+   The LDA generated topics can be seen below including relevant keywords, each topics respective average sentiment score and the number of songs classified for each topic. </p>
 
 <table>
   <colgroup>
@@ -236,7 +238,7 @@ It is of interest to examine the most frequent terms after the cleaning to detec
 
   </tr>
     <tr>
-    <td>(3) Breaking rules</td>
+    <td>(3) NSFW</td>
     <td>bitch, cheat, play, fuck</td> 
     <td>0.10</td>
       <td><p>62<br>(48% HipHop, 23% RnB, 13% Pop, 13% Country, 5% Rock)</p></td>
@@ -263,7 +265,7 @@ It is of interest to examine the most frequent terms after the cleaning to detec
 
 
 <p>
-  To evaluate the topic model performance we have used the below interactive LDA visualizer. Wirth this tool we have examine how themodel generated the topics. 
+  To evaluate the topic model performance we have used the below interactive LDA visualizer. With this tool we have examine how the model generated the topics. 
   The chart to the left illustrate how separated the classes are
     whereas the chart to the right shows the words that reprsents the topics ordered by relevance. The left chart depends on the tunable λ-parameter. 
     The λ-parameter represents the TF-IDF adjustment, which assigns less importance to words with high frequency count,
