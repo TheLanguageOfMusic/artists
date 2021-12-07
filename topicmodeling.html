@@ -29,7 +29,7 @@ Before implementing the topic model we look at the most frequence words and see 
 </p>   
 
 <p>
-  When talking about a collection of written text the correct term is corpus. Our corpus is the song lyrics in our dataset.
+  When talking about a collection of written text the correct term is corpus. Our corpus is the song lyrics in our dataset. When talking about the vocabulary size it is the unique words within the corpus. 
 </p>
 
 <h2>Frequency count befor cleaning</h2>
@@ -85,19 +85,19 @@ As a priliminary investigation we look at the most frequence words within the co
 It is clear that the frequenced words are stopwords without meaning. 
 
    A thorough text cleaning is needed  in order to ensure a qualified topic modeling performance.
-.</p>
+</p>
 
-<h2>Text cleaning</h2>
+<h2>Text preprocessing</h2>
 
 <p>
 
   
   
-The  aim  of  text  cleaning  is  to  significantly  reduce  corpus  dimensionality. 
-  The  quality  of  the definitive topics is highly dependent on the quality of the input data for the model. 
+The  purpose  of  text  preprocessing  is  to  reduce vocabulary size by cleaning the corpus. 
+  The  quality  of  the topics found by the topic model is highly dependent on the quality of the input data for the model, this text cleaning step is thereby very importain. 
   
-  The lyrics will undergo four different cleaning steps in order to produce the input for the topic model.  
-  Below an overview of the full cleaning process canbe seen and the resulting vocabulary size after having applied the different cleaning techniques.
+  The corpus will undergo four different cleaning steps in order to produce the input for the topic model.  
+  Below an overview of the full cleaning process can be seen and the resulting vocabulary size after having applied the different cleaning techniques.
 </p>
 
 <p style="text-align:center;">
