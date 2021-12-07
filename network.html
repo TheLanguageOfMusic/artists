@@ -86,25 +86,29 @@ subheading: 'Which artics are connected?'
  <br><br>
  
  The method for extracting the backbone can then be carried out according to the presented technique in 
- <a href="https://www.pnas.org/content/pnas/106/16/6483.full.pdf">this article</a> from 2009 by M. A. Serrano et al. The purpose of the method is find a significans 
+ <a href="https://www.pnas.org/content/pnas/106/16/6483.full.pdf">this article</a> from 2009 by M. A. Serrano et al. The purpose of the method is find a significance 
  level <i>&#945;</i> for which a sufficient amount of link-weight is kept in the network, while the total number of edges is greatly reduced.
- In order to select suitable significans level <i>&#945;</i> we look at the figure below. On the left we se <i>N<sub>B</sub>/N<sub>T</sub></i> 
- as a function of <i>W<sub>B</sub>/W<sub>T</sub></i> at different significance levels, where <i>N</i> is nodes and <i>W</i> is weight and the subscripts <i>B</i> and <i>T</i> refers to the backbone and total network repectively. 
+ In order to select suitable significance level <i>&#945;</i> we look at the figure below. On the left we se <i>N<sub>B</sub>/N<sub>T</sub></i> 
+ as a function of <i>W<sub>B</sub>/W<sub>T</sub></i> at different significance levels, where <i>N</i> is nodes and <i>W</i> is weight and the subscripts <i><sub>B</sub></i> and <i><sub>T</sub></i> refers to the backbone and total network repectively. 
  To the right we se <i>N<sub>B</sub>/N<sub>T</sub></i> against the number of edges <i>E</i> kept at different significans levels.
 </p>
 
 {% include alpha_vals.html %}
 
 <p>
-  It is obviously a bit subjective which significans level that should be chosen
+  It is obviously a bit subjective decision that have to be made on which significance level that is be chosen. But we argue in this case, that because the weight kept 
+ is more or less directly proportional to the value of <i>&#945;</i>, then we can choose from looking mostly at the right graph of the edges kept. Here it is clear 
+ that there up to <i>&#945; = 0.1</i> we get to remove more edges than at higher <i>&#945;</i> values - therefore this is the chosen significance level.
+ 
+ <br><br>
+ 
+ When the backbone is extracted, it looks like the network shown below. The number of nodes have been reduced to 2955 and the number of links to 4701. This means 
+ that we get to keep more than 60% of the nodes while only retaining less than 10% of the links, and that is exactly what the goal of this section is about. 
+ In the network visualisation below it is also evident, that we still have good seperation between the genres, even with a lot fewer links.
 </p>
 
 <p style="text-align:center;">
 <img src="image/Backbone.png" width=100%>
-
-<p>
- Hejhej
-</p>
 
 
 <h2>Commuities</h2>
