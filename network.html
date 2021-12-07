@@ -7,6 +7,21 @@ subheading: 'Which artics are connected?'
 
 ---
 
+<style>
+/* basic positioning */
+.legend { list-style: none; }
+.legend li { float: left; margin-right: 10px; }
+.legend span { border: 1px solid #ccc; float: left; width: 12px; height: 12px; margin: 2px; }
+/* your colors */
+.legend .pop { background-color: #DA70D6; }
+.legend .rnb { background-color: #008080; }
+.legend .country { background-color: #335EFF; }
+.legend .rock { background-color: #FF3333; }
+.legend .hiphop { background-color: #4B0082; }
+.legend .other { background-color: #FFFF00; }
+</style>
+
+
 <h2>Network analysis goal</h2>
 
 <p>
@@ -84,29 +99,23 @@ Now that the network have been reduced greatly in both nodes and links, it will 
 </p>
 
 {% include com_size.html %}
+
 <p>
  Mere om hvilke communities der ses ovenfor og hvordan de er fordelt ud på genre. Husk at nævne (igen) at der er færre i nogle genre end andre.
  + hertil viser vi plottet nedenfor bla bla. ihhh hvor er det fint. eksempler på ting der giver super mening
 </p>
 
-<style>
-/* basic positioning */
-.legend { list-style: none; }
-.legend li { float: left; margin-right: 10px; }
-.legend span { border: 1px solid #ccc; float: left; width: 12px; height: 12px; margin: 2px; }
-/* your colors */
-.legend .superawesome { background-color: #ff00ff; }
-.legend .awesome { background-color: #00ffff; }
-.legend .kindaawesome { background-color: #0000ff; }
-.legend .notawesome { background-color: #000000; }
-</style>
+
 
 <ul class="legend">
-    <li><span class="superawesome"></span> Super Awesome</li>
-    <li><span class="awesome"></span> Awesome</li>
-    <li><span class="kindaawesome"></span> Kinda Awesome</li>
-    <li><span class="notawesome"></span> Not Awesome</li>
+    <li><span class="pop"></span> Pop</li>
+    <li><span class="rnb"></span> RnB</li>
+    <li><span class="hiphop"></span> Hip Hop</li>
+    <li><span class="country"></span> Country</li>
+    <li><span class="rock"></span> Rick</li>
+    <li><span class="other"></span> Multiple Genres</li>
 </ul>
+
 {% include test_com.html %}
 
 <p>
