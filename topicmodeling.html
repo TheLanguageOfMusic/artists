@@ -119,15 +119,14 @@ The four text cleaning steps is described below:
 
 <p> &nbsp;&nbsp; 2. Rare and short words</p>
 <p>
-A simple but efficient text cleaning step in terms of vocabulary reduction, is to remove rare and short words. 
-  All words that are only mentioned one time in the entire dataset of lyrics are deemed too unique and without importance, hence they are deleted. 
-  The same applies to words of only one character. 
+A very simple but efficient text cleaning step in terms of vocabulary reduction, is to remove rare and short words. 
+  It is safe to say that the words that only appears once in the entire corpus is without importance and can thereby be deleted. 
+  Words of only one character is deemed to have no importance for the topics as well. 
 </p>
 
 <p> &nbsp;&nbsp; 3. Only noun, verb and adj</p>
-<p>
- All words that are not labeled ”noun”, ”verb” or "adj" are removed as it is expected that the nouns, verbs and adjectives carry most 
-  information on the message of a song.
+<p> It has been evaluated that nouns, verbs and adjectives carry most information on the message of the songs. All other words that are not labeled ”noun”, ”verb” or "adj" are thereby removed.
+
 </p>
 
 <p> &nbsp;&nbsp; 4. Meaningless words</p>
