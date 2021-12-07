@@ -109,10 +109,21 @@ artists and their relation across different genres it is of high relevance to lo
 <h3>Genre distribution</h3>
 <p>
 {% include genre_dist.html %}
+<p>
+   From the above plot it can be seen how the genres <code>HipHop</code> and <code>Country</code> is the largest genres in the data, 
+   while the genre <code>Pop</code> is the smallest.
+</p>
 
 
 <p>
 <h3>Active artists over time</h3>
+</p>
+<p>
+Active artists are defined as artists that at a given time have started their carreer and not yet ended it. 
+It is useful to look at the active artists over time, as it gives a good understanding of the dataset, that we are dealing with.
+Music have existed for ages, but it keeps developing and new artists keep emerging. Furthermore Wikipedia is a modern invention, 
+hence it is interesting to see which artists that are represented in wikipedia and how many over the years.
+</p>
 <p align="center">
 {% include Active_artists.html %}
 </p>
@@ -159,6 +170,8 @@ Futhermore it can be seen how HipHop has a rather rapid increase compared to all
 </tbody>
 </table>
 
+Based on the above table it can be seen how the average amount of followers on Genius in general is quite low compared to other social medias. It is interesting to
+look at the top 5 artists with most followers within each genre, as it might support this tendency. 
 
 {% include followers.html %}
 
@@ -166,4 +179,4 @@ From the above plot it can be seen how the HipHop genre in general have more fol
 Futhermore it can be seen how the artist with most followers is Kendrick Lamar with 26.291 followers. 
 If this value is compared with his amount of followers on <a href="https://open.spotify.com/artist/2YZyLoL8N0Wb9xBt1NhZWg">Spotify</a> 
 (30.2M monthly listeners) and <a href="https://www.instagram.com/kendricklamar/?hl=da">Instagram</a>(9.7M followers) it is a very small amount. 
-Hence this indicates that people in general to not use Genius to any great extent.
+Hence this indicates that people in general do not use Genius to any great extent. 
