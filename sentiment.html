@@ -30,10 +30,10 @@ So that you in the future can chose you playlist depending on your mood.</p>
  </p>
 
 <p>
-There exist multiple sentiment analysis models, all for different purpose and each with their stregnth and weaknesses. Due to the often extream word used in songs
-  the choosen model is Vader. Vader(Valence Aware Dictionary for Sentiment Reasoning), is trained on social media data and is thus naturally attuned to sentiments 
-  expressed in this context, including both polarity, intensity (”!!!”), acronyms (”LOL”) and slang.  The model relies on word-order 
-  relationship, i.e. classifying based on full sentence structure. The Vader sentiment model calculates a sentiment score(compound score) on the scale [−1;1] and then sets a
+There exist many sentiment analysis models, all for different purpose and each with their stregnth and weaknesses. Due to the often extream word used in songs
+  the choosen model is Vader. Vader(Valence Aware Dictionary for Sentiment Reasoning), is trained on social media data and is therefore caperble of understanding
+  intensity (”!!!”), acronyms (”LOL”) and slang. The model classifies based on full sentence structure since it relies on wordorder.
+   The Vader sentiment model calculates a sentiment score(compound score) on the scale [−1;1] and then sets a
   threshold to classify the text as positive, neutral or negative. See <a href="https://github.com/cjhutto/vaderSentiment">The Vader Sentiment Model</a> github page for detailed describtion of the model. 
   For this study we use the Vader sentiment classification which are as followed:</p>
   
