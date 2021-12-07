@@ -112,9 +112,9 @@ The four text cleaning steps is described below:
 
 <p> &nbsp;&nbsp; 1. Noice</p>
 <p> 
-First, a preliminary noise cleaning of the text data is carried out, in which all words are transformed into lowercase capitalization, 
-  ordinary stop-words such as ”the”, ”have” and ”should” are removed along with non-alphabetic characters (!?,.). 
-  It is followed by lemmatization to extract the dictionary form of all words. 
+  The first step in the cleaning process is the noice removal. It begins by transforming all words into lowercase, than removing all stopwords such as "the" and "a",
+  followed by a removing of all non-alphabetic characters (!?,.). The larst part of the noice removal is to lemmatize the words,
+  this means to extract the dictionary form of all words. 
 
 
 <p> &nbsp;&nbsp; 2. Rare and short words</p>
@@ -136,8 +136,8 @@ As the larst cleaning step we looked at the frequency words and removed words wi
 </p>
 
 <p>
-The text cleaning of the lyrics is now finalized and unimportant words have been removed. The cleaned data is not 
- ready to be used as input for a topic model.  
+The text cleaning of the corpus is now finalized and unimportant words have been removed. The cleaned data is now 
+ ready to be used as input for the topic model.  
 
 </p>
 
