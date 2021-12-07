@@ -267,9 +267,9 @@ It is of interest to examine the most frequent terms after the cleaning to detec
 <p>
   To evaluate the topic model performance we have used the below interactive LDA visualizer. With this tool we have examine how the model generated the topics. 
   The chart to the left illustrate how separated the classes are
-    whereas the chart to the right shows the words that reprsents the topics ordered by relevance. The left chart depends on the tunable λ-parameter. 
-    The λ-parameter represents the TF-IDF adjustment, which assigns less importance to words with high frequency count,
-   λ=1 corresponds to importance by term frequency. Decreasing the parameter yields less importance to more frequently used words.
+    whereas the chart to the right shows the words that reprsents the topics ordered by relevance. The left chart depends on the tunable λ-parameter which is based on TF-IDF.
+  This means that a high value of λ corresponds to importance by term frequency. If the λ-value is decreased there will be given less importance to frequently used words. 
+
 </p>
 
 
@@ -277,7 +277,7 @@ It is of interest to examine the most frequent terms after the cleaning to detec
 
 
 <p>
- From the inteactive LDA visulaizer we discover that the four topic is nicely seperated, indicating that the cleaningprocess went well and the model has created some good topic to describe the data.
+ From the inteactive LDA visulaizer we discover that the four topic is nicely seperated, indicating that the cleaning process went well and the model has created some good topic to describe the data.
   
 </p>
 
@@ -304,7 +304,7 @@ It is of interest to examine the most frequent terms after the cleaning to detec
 <div class="row">
   <div class="column">
 <b>That's what I like by Bruno Mars- Topic 4</b>
-<p>This song is about the rich lifestyle with glammer and it is therefore fair to say that it fits the topic life experience. 
+<p>This song is about the rich lifestyle with glammer and it is therefore fair to say that it fits the topic "Life experience". 
 
     </p>  
   </div>
@@ -318,7 +318,8 @@ It is of interest to examine the most frequent terms after the cleaning to detec
 <div class="row">
   <div class="column">
     <b> Only by Nicki Minaj- Topic 3</b>
-<p> It is an extremely sexistic song where Minaj defends herself for her sexual life. It is therefore no surprise that the model classifies this as topic 3.  
+<p> It is an extremely sexistic song where Minaj defends herself for her sexual life. It is therefore no surprise that the model classifies this as "NSFW"
+  (Not Suitable For Work in the form of very sexual songs).  
   
     </p>
   </div>
@@ -341,10 +342,10 @@ The size of the words represents their relative relevance.
 <p>
   From the wordclouds it is clear to see that Pop and RnB are very much alike with words like <i>"love"</i> and <i>"baby"</i> being with signitifact importance.
   From our network analysis we saw the same, that many Pop artist also make RnB music and vise verse. These two genre are thereby close connected. 
-  The words representing HipHop is word there also described the topic "Violent gangster" and "Breaking rules". 
+  The words representing HipHop is word there also described the topic "Violent gangster" and "NSFW". 
   This is as expected since HipHop accounted for the largest proportion of each of the topics (respectively 26% and 48%). 
   When it comes to the last two genres, Rock and Country, the words is more even distributed between the topics which relates to their distributions in the topic modeling analysis.
-  Furthermore Country has very few negative charged words which fits the results from the sentiment analysis namely that country is the genre with the lowest proportion of negative messages. 
+  Furthermore Country has very few negatively charged words which fits the results from the sentiment analysis namely that country is the genre with the lowest proportion of negative messages. 
 </p>
 
                                            
