@@ -108,23 +108,19 @@ subheading: 'Which artics are connected?'
  By looking at the right graph the value <i>&#945; = 0.1</i> seems reasonable. With <i>&#945; = 0.1</i> more edges are removed while keeping as many nodes as possible, 
  when compared to higher values of <i>&#945;</i>. Thus for this study <i>&#945; = 0.1</i> is the chosen significance level in the disparity filter. 
  <p>
- It is obviously a bit subjective decision that have to be made on which significance level that is be chosen. But we argue in this case, 
- that because the weight kept 
- is more or less directly proportional to the value of <i>&#945;</i>, then we can choose from looking mostly at the right graph of the edges kept. Here it is clear 
- that there up to <i>&#945; = 0.1</i> we get to remove more edges than at higher <i>&#945;</i> values - therefore this is the chosen significance level.
- 
  <br><br>
  
- When the backbone is extracted, it looks like the network shown below. The number of nodes have been reduced to 2955 and the number of links to 4701. This means 
- that we get to keep more than 60% of the nodes while only retaining less than 10% of the links, and that is exactly what the goal of this section is about. 
+ When the GCC of the backbone network is extracted, it looks like the network shown below. The number of nodes have been reduced to 2955 and the number of links to 4701. This means 
+ that we get to keep more than 60% of the nodes while only retaining less than 10% of the links, which is exactly what the goal of this section is about. 
  In the network visualisation below it is also evident, that we still have good seperation between the genres, even with a lot fewer links.
-</p>
+ Additionally, by allowing a lot fewer links, the different connections are easier differentiated. 
+  </p>
 
 <p style="text-align:center;">
 <img src="image/Backbone.png" width=100%>
  
 <p>
- To compare the backbone to the old network we also look at the 15 most connected artists again. Most of them are the same as before the backbone was extracted, 
+ To compare the backbone network to the old network the 15 most connected artists is reviewed once again. Most of them are the same as in the old network, 
  but there are also some differences. E.g. Michael Jackson is no longer in the top 15 most linked artists. Instead there is some new names such as Missy Elliot and 
  Mariah Carey.
 </p>
@@ -134,9 +130,10 @@ subheading: 'Which artics are connected?'
 
 <h2>Commuities</h2>
 <p>
- Now that the network only contains what we find to be the "important" links, the communities are found. This is done with the 
+ Now that the network only contains what the disparity filter finds to be the most significant and thereby most "important" links, the communities are found. 
+ This is done with the 
  <a href="https://en.wikipedia.org/wiki/Louvain_method">Louvain algorithm</a>, which is an approximation algorithm that tries to maximize the 
- modularity score <i>Q</i>. When implementet on the backbone network, we end up with 38 communities and a modularity score of <i>Q = 0.76</i>, which indicates 
+ modularity score <i>Q</i>. When implemented on the backbone network, we end up with 38 communities and a modularity score of <i>Q = 0.76</i>, which indicates 
  a fairly good partition. In the bar chart below, the size of all communities are shown. The individual communities are named after the 3 nodes with the highest 
  degree in the community.
 </p>
@@ -144,10 +141,12 @@ subheading: 'Which artics are connected?'
 {% include com_size.html %}
 
 <p>
- As mentioned, a goal with this page is to study whether or not the communities compare to the some common conception about the artists 
+ As mentioned, a goal with this page is to study whether or not the communities compare to the same common conception about the artists 
  relations. Therefore, the number of artists within each genre in each community is also shown above. Clearly, a lot of the communities are dominated by a 
  a single genre, but there are also expections such as the communities <code>Nicki Minaj, Chris Brown, Beyoncé</code> and <code>Mariah Carey, Whitney Houston, Michael Jackson</code>. 
- Remember again here, that there are not equally many artists in each genre in the whole network, and therefore these two communities can be seen as quite "diverse". 
+ Remember, that there are not equally many artists in each genre in the whole network, and therefore these two communities can be seen as quite "diverse". 
+ Based on the stacked bar plot above it can also be seen how there are multiple communtities with the same dominating genre. As an example the first and ninth community
+ are both dominated by the Country genre. This is an interesting result, which will be analyzed futher later on this page. 
  
  <br><br>
  
@@ -157,8 +156,8 @@ subheading: 'Which artics are connected?'
  <code>Mariah Carey, Whitney Houston, Michael Jackson</code> and <code>Nicki Minaj, Chris Brown, Beyoncé</code> are included. You can zoom in on the different 
  communities to look at the individual artists in each of them. If you are into music, you will hopefully agree, that most of the artists are in a community that 
  seems sensible. There are of course also examples of nodes/artists that might not seem to belong in their community, e.g. DJ Tiësto and Swedish House Mafia might not 
- be a natural inclusion with Nirvana and the other rock bands. Another thing to notice is how the two mixed communities also have more yellow nodes. The fact that 
- these artists who are in multiple genres are represented more in these communities could indicate, that they also can act as links between artists in 
+ be a natural inclusion with Nirvana and the other rock bands. Another thing to notice is how the two mixed communities have more yellow nodes than the other communities.
+ The fact that these artists, who are in multiple genres, are higher represented in these communities could indicate, that they can act as links between artists in 
  different genres.
 </p>
 
@@ -175,27 +174,28 @@ subheading: 'Which artics are connected?'
 {% include test_com.html %}
 
 <p>
- We have now seen how the genres generally offer a good explanation for the community partition. However, one thing that is still left unanswered is what causes there 
- to be multiple cummunities dominated by the same genres and not just a single one. In the next section we seek to explain some of this by looking into time and space attributes 
+ The genres generally offer a good explanation for the community partition. However, one thing that is still left unanswered is what causes multiple cummunities 
+ to be dominated by the same genre. Why is there not just one community dominated by a genre? In the next section we seek to explain some of this by looking into time and space attributes 
  of the communities. The graph below shows when the artists from a selection of communities started their careers. 
 </p>
 
 {% include com_year.html %}
 
 <p>
- If you select the first two communities on the legend 
+ If you only select the first two communities on the legend 
  to the right of the graph, you will se that there indeed is some temporal difference between these two Country communities. Most of the artists in <code>Johnny Cash, Willie Nelson, Elvis Presley</code> 
  started their career around the 1960s, where the artists in <code>Carrie Underwood, Reba McEntire, Taylor Swift</code> mostly started their career after 1980. 
  The exact same can be seen if you instead select the next three communities - namely the hip hop communities. Here we see that most of the artists in
  <code>Eminem, Dr. Dre, Snoop Dogg</code> started their career between 1985-1995, in <code>Kanye West, Drake (musician), Rihanna</code> they started between 2004 and 2014 and in 
- the community of new rappers <code>XXXTentacion, Lil Durk, Juice Wrld</code> almost all started after 2010. Again, for the last two communities before refered to 
- as to mixed communities, the same can be said.
-
+ the community of new rappers <code>XXXTentacion, Lil Durk, Juice Wrld</code> almost all started after 2010. Lastly, the same tendency can be 
+ identified if you select the last two communities, which 
+ previously have been referred to as mixed communities. 
  <br><br>
  
- The next explanation the separation of communities is related to where in the world the artits come from. On the map below are two of the biggest communities dominated 
- by rock artists shown. The nodes position on the map corresponds to the artist's origin. Here it can be seen how one community almost only originates from North 
- America, while the other community contains a lot of artists from the UK.
+In a final attempt to find an explanation of the separation of communities you can also look at the the origin attribute of each artist.
+ The two biggest communities dominated by rock artists are shown in the plot below. The nodes position on the map corresponds to the artist's origin. 
+ Here it can be seen how one of the communities almost only originates from North America, while the other community contains a lot of artists from the UK. 
+ This is an interesting finding, as it indicates that the separation of communities to some extent can be described by the origin attribute. 
 </p>
 
 <p style="text-align:center;">
@@ -204,14 +204,14 @@ subheading: 'Which artics are connected?'
  
  <h2>Network conclusion</h2>
 <p>
- On this pages, the linkage of music artists in and between different genres have been explored. In total we can conclude on multiple facts about the network. First, 
- that already in the first network with many nodes and links, the genres seem to be a good partitioner for the network - this could be seen in the first network 
- plot on this page. Secondly it was discovered that the network was so densely connected that analysis could become difficult, therefore the backbone of the network 
- was extracted. With the method applied we removed more than 90% of the links while still keeping most of the important information. Other than making the network 
- more manageable, the backbone analysis made it possible to devide the network into communities of sensible sizes. The goal was to evaluate communities on the basis 
- of how well they represent common assumptions of linkages between music artist. This obviously leads to a very subjective judgement of the communities, but all in all 
- we conclude that the communities to a large extend represents the linkages one would have assumed. In part this can be explained by temporal and spacial attributes and 
- of course the genres of the artists.
+ On this pages, the linkage of music artists in and between different genres have been explored. As a result multiple facts can be concluded facts about the network. 
+ Firstly it can be concluded, that already before the backbone analysis, the genres seem to be a good partitioner for the network. This could be seen in the first network
+ plot on this page. However it was discovered that the network was so densely connected that further analysis could become difficult, therefore the backbone of the network 
+ was extracted. With the disparity filter method applied it was possible to remove more than 90% of the links while still keeping most of the important information. 
+ The bachbone network not only made the network more manageable, but is also made it possible to devide the network into communities of sensible sizes. 
+ The goal was to evaluate communities on the basis of how well they represent common assumptions of linkages between music artist. 
+ This leads to a somewhat subjective judgement of the communities, but all in all it can be concluded that the communities to a large extend 
+ represents the linkages one would have assumed. To some extent this can be explained by temporal and spacial attributes and of course the genres of the artists.
 </p>
  
  
