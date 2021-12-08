@@ -15,9 +15,9 @@ As already mentioned the data for this study is based on the wikipidedia lists o
    <a href="https://en.wikipedia.org/wiki/List_of_alternative_rock_artists">Rock</a>, <a href="https://en.wikipedia.org/wiki/List_of_country_music_performers">Country</a>.
 The data has been downloaded by reading the list of artists for each genre using the wikipedia API. The result of the API is a html file containing the list of artists 
 of the given genre. By using regular expression on the html files it is possible to extract and save the name of each artist into a pandas DataFrame. Hence this process
-results in a dataframe containing the list of all artists with the attributes <i>name, genre, name_ and link_name</i>. 
+results in a dataframe containing the list of all artists with the attributes <code>name</code>, <code>genre</code>, and <code>link_name</code>. 
 Then it is possible to use the same wikipedia API to download the wikipedia page of every artist. 
-The downloaded wikipedia pages is then saved as .txt files with the link_name of then given artist. 
+The downloaded wikipedia pages is then saved as .txt files named after the <code>link_name</code> of the given artist. 
 <p>
 
 <p>
@@ -44,7 +44,7 @@ Furthermore the number of followers can be retrived by using the genius API. The
     <td>str</td> 
     <td>Name of the artist as written in the wikipedia list</td>
 </tr>
-    <td>link_name</td> 
+    <td><code>link_name</code></td> 
     <td>str</td> 
     <td>This attribute takes the same value as the name attribute, with the exception of links that are redirected. When running the wikipedia API some of the
       the values in the name attributes redirects to a wikipedia page with a different name. Furthermore all spaces are replaced with underscore </td>
