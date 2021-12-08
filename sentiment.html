@@ -8,33 +8,33 @@ subheading: 'What are the sentiment of the songs we listen to?'
 
 <h2>Sentiment analysis goal</h2>
 <p>
-The purpose of sentiment analysis in our study is to get insight into the emotional part of the songs. We start by looking at the overall picture and investigate 
-  the distribution of sentiment, revealing wheather the top listen songs provides a positive or negative message. To get a deeper insight we investigate the sentiment
-  for each genre to see if some genre is more violent/negative than others. Furthermore the study will include an evaluation of the models performance of classifying the sentiment of the songs. 
-  In the end we look into the most positive and negative songs and what words discribes the sentiment groups 
-  to understand what makes a song negative/positive. Hopefully this part of our study will provide knowledge of the emotional state of songs and how the genres differents on their sentiment.
-So that you in the future can chose you playlist depending on your mood.</p>
-
-
-
+The purpose of sentiment analysis in our study is to get insights into the emotional part of the songs. We start by looking at the overall picture and investigate 
+  the distribution of sentiment, revealing whether the top listen songs provides a positive or negative message. To get a deeper insight the sentiment of each genre
+  is investigated with the aim of revealing if some genres are more more violent/negative than others. Furthermore the study will 
+  include an evaluation of the models performance of classifying the sentiment of the songs. 
+  In the end we look into the most positive and negative songs and what words that describes the sentiment groups so as to achieve an understanding of what makes
+  a song negative/positive. Hopefully this part of our study will provide knowledge of the emotional state of songs and how the genres differentiates
+  on their sentiment. So that you in the future can chose you playlist depending on your mood.</p>
 
 
 <h2>Sentiment tool</h2>
 <p>
   A sentiment analysis model is a machine learning technique that can classify a text as positive, neutral or negative. 
   Analysing language is called Natural Language Processing(NLP) and contains both sentiment analysis and topic modeling which we will cover in this study.
-  For the sentiment analysis the goal is that the model should understand all kind of underlying tones in a text. This includes negation, capitalization, linguistic, context, symboles
-    and sarcasm and takes these into accounting when classifying the sentiment. An example of a negation that the sentiment model should be able to capture
-  can be seen in the sentence,  <i>”I do not like you”</i>. The word like is normally classified as positive, but due to the linguistic structure the words in front of <i>like</i> namely
+  In the sentiment analysis the goal is that the model should understand all kinds of underlying tones in a text. This includes negation, capitalization, 
+  linguistic, context, symboles and sarcasm. The model should take these into accounting when classifying the sentiment. 
+  An example of a negation that the sentiment model should be able to capture
+  can be seen in the sentence,  <i>”I do not like you”</i>. The word 'like' is normally classified as positive, but due to the linguistic structure the words
+  in front of <i>like</i> namely
   <i>"I do not"</i> yields negation of <i>like</i>, making the sentence negative.
  </p>
 
 <p>
-There exist many sentiment analysis models, all for different purpose and each with their stregnth and weaknesses. Due to the often extream word used in songs
-  the choosen model is Vader. Vader(Valence Aware Dictionary for Sentiment Reasoning), is trained on social media data and is therefore caperble of understanding
-  intensity (”!!!”), acronyms (”LOL”) and slang. The model classifies based on full sentence structure since it relies on wordorder.
-   The Vader sentiment model calculates a sentiment score(compound score) on the scale [−1;1] and then sets a
-  threshold to classify the text as positive, neutral or negative. See <a href="https://github.com/cjhutto/vaderSentiment">The Vader Sentiment Model</a> github page for detailed describtion of the model. 
+There exist many sentiment analysis models, all for different purpose and each with their own strength and weaknesses. Due to the often extreme words used in songs
+  the choosen model is Vader. Vader(Valence Aware Dictionary for Sentiment Reasoning), is trained on social media data and is therefore capable of understanding
+  intensity (”!!!”), acronyms (”LOL”) and slang. The model makes a classification based on full sentence structure since it relies on wordorder.
+   The Vader sentiment model calculates a sentiment score (compound score) on the scale [−1;1] and then sets a
+  threshold to classify the text as being positive, neutral or negative. See <a href="https://github.com/cjhutto/vaderSentiment">The Vader Sentiment Model</a> github page for detailed describtion of the model. 
   For this study we use the Vader sentiment classification which are as followed:</p>
   
 <p style="text-align:center;">
@@ -48,7 +48,7 @@ There exist many sentiment analysis models, all for different purpose and each w
 <h2>Sentiment distribution</h2>
 
 <p>
-It is interesting to investigate the overall sentiment of the music industry to obtain an overall picture of wheather people like to listen to happy or sad songs. 
+It is interesting to investigate the overall sentiment of the music industry to obtain an overall picture of whether people like to listen to happy or sad songs. 
  The Vader sentiment analysis has been performed on the data and the distribution of the classes can be seen below.
   
 </p>
@@ -64,20 +64,20 @@ It is interesting to investigate the overall sentiment of the music industry to 
 
 
 <p>
-There are very few songs classified as neutral this indicates that music tent to have an extreame polarised sentiment. Wheather it is very loving or extream angry.
-This gives an indication that music tries to avoke emotion within the listener. Furthermore the overall picture indicates that there are mostly postive songs. 
+There are very few songs classified as neutral, which indicates that music tends to have an extreme polarised sentiment. Whether it is very loving or extremely angry.
+This indicates that music tries to evoke emotion within the listener. Furthermore the overall picture indicates that most songs are positiv. 
   </p>
 
 <p>
-  It should be noted that the dataset does not contain the whole music industry and that the results gives a picture of what the industry looks like.
+  It should be noted that the dataset does not contain the whole music industry and that the results only gives a picture of what the industry looks like.
 </p>
 
 
 <h2>Sentiment distribution per genre</h2>
 
 <p>
-To achieve a deeper understanding af the sentiment distribution we have chosen to look at each genre at a time. 
-  We can then compare the genres and their senntiment to understand how the genres differences. 
+To achieve a deeper understanding of the sentiment distribution each genre will be analyzed. 
+  We can then compare the genres and their sentiment to understand how the genres differences. 
   The resulting classification of songs within each genre can be seen below. 
   
   
@@ -90,16 +90,19 @@ To achieve a deeper understanding af the sentiment distribution we have chosen t
 
 
 <p>
-It is clear to see that some genre tent to have more negative songs where others more positive. As expected hiphop(followed by rock) is the genre with the largest amount of negative songs.
-  Whereas RnB and pop is the genres with the most positive messages. There is a clear indication that depending on the genre we chose to listen to the tone we are exposed to is dependen thereon. 
+Based on the plot above some genres clearly tends to have more negative songs while others more positive. As expected Hip Hop (followed by Rock) is the genre 
+  with the largest amount of negative songs.
+  Whereas RnB and Pop are the genres with the most positive messages. Consequently there is a clear indication that the tone we are exposed to as a listener 
+  is depending on the genre we choose to listen to. 
 </p>
 
 <h2>Model evaluation</h2>
 <p>
-To evaluate the model performace we look into the most positive and most negative songs. By reading the lyrics we can evaluate if these songs has been classified correctly and thereby get an indication of the models overall performance.
+The model is evaluated by looking into the most positive and most negative songs. By reading the lyrics we can evaluate if the songs have been 
+  classified correctly and we can thereby get an indication of the models overall performance.
   If you want to see another evaluation of the model check out <a href="https://drive.google.com/drive/folders/121j5cVK8jS9F-RIRD84YaGZYDMvBw0IM?usp=sharing">The Explainer Notebook</a>
-  where we evaluate the models performance based on random samples of the data across sentiment classes. 
-  The results from that evaluation shows the same as the following evaluation, namely that the Vader Sentiment Model success in classifying the songs correctly.
+  where the models performance is evaluated based on random samples of the data across sentiment classes. 
+  The results in the notebook shows the same as the following evaluation, namely that the Vader Sentiment Model succeeds in classifying the songs correctly.
 
 </p>
 <b>Top 3 most positive songs</b>
@@ -136,6 +139,7 @@ To evaluate the model performace we look into the most positive and most negativ
     <td>0.9999</td>
 </tr>
 <tr>
+<tr>
 <td>thank u, next</td>
     <td>Ariana Grande </td> 
     <td>RnB</td> 
@@ -145,7 +149,7 @@ To evaluate the model performace we look into the most positive and most negativ
 </table>
 
 <p>
-We have chosen to look further into the lyrics of these songs to evaluate if they really do provide positive messages. 
+In the following we will take a closer look at the lyrics of the songs stated in the table above to evaluate if they really do provide positive messages. 
 </p>
 <p>
  
@@ -154,7 +158,7 @@ We have chosen to look further into the lyrics of these songs to evaluate if the
 <div class="row">
   <div class="column">
     <b> Girls Like you</b>
-<p>This song is about a boy being madly in love with a girl. As the lyrics says, spending 24 hours together is not even enough for him. There are no doubt that this song has been classified correctly as extreamly positive.
+<p>This song is about a boy being madly in love with a girl. As the lyrics says, "spending 24 hours together is not even enough for him". There are no doubt that this song has been classified correctly, namely as extreamly positive.
 </p>
   </div>
   <div class="column">
@@ -170,7 +174,7 @@ We have chosen to look further into the lyrics of these songs to evaluate if the
 <p>
 The song was inspired by Justin's grandparents’ relationship of 63 years. It is about finding true love and your other half.
   As he sings, "You reflect me, I love that about you. And if I could, I would look at us all the time". 
-  The lyrics includes many positive sentences with love and disire and it is therefore classified correctly. 
+  The lyrics includes many positive sentences with love and disire and it is therefore correctly classified. 
 </p>  
   </div>
   <div class="column">
@@ -185,7 +189,7 @@ The song was inspired by Justin's grandparents’ relationship of 63 years. It i
     <b> Thank u, next</b>
 <p>
   At a first glance of the title "Thank you, next" is kind of ironic and not positive but if you look closer at the lyrics you discover why the sentiment analysis has classified this song as extreamly positive. 
-  The song is about learning to love your self as she sings "I've got so much love... I turned out amazing" which illustrates a correct classification after all. 
+  The song is about learning to love yourself as she sings "I've got so much love... I turned out amazing". This illustrates a correct classification after all. 
 </p>
   </div>
   <div class="column">
@@ -241,7 +245,8 @@ The song was inspired by Justin's grandparents’ relationship of 63 years. It i
 </table>
 
 <p>
-We will now evaluate if these songs has been clasified correctly by looking into the lyrics. 
+Once again we will evaluate if these songs has been clasified correctly by looking into the lyrics. 
+
 </p>
 <p>
  
@@ -251,7 +256,7 @@ We will now evaluate if these songs has been clasified correctly by looking into
   <div class="column">
     <b> HUMBLE</b>
 <p> This song is about the conflicting feelings of success. 
-  Throughout the song the lyrcis encouragee powerfull people to be humble and become more down to earth. He sings, 
+  Throughout the song the lyrcis encourage powerful people to be humble and become more down to earth. He sings, 
   “I’m so fuckin’ sick and tired of the photoshop. Show me somethin’ natural like ass with some stretch marks". The song disses the upper class lifestyle and the song is thereby correctly classified as negative. 
 </p>
   </div>
@@ -279,7 +284,7 @@ Leaving me here on my own". Indicating a correct classification of the song.
   <div class="column">
     <b> No role modelz</b>
 <p>As this title implies, this song is about J’s lack of role models growing up. 
-  Furthermore he attacks Hollywood itself for its focus on superficial people, especially when it comes to women. The lyrics has almost only negative messages and is thereby classified as extreamly negative. 
+  Furthermore he attacks Hollywood itself for its focus on superficial people, especially when it comes to women. The lyrics have almost only negative messages and is thereby classified as extreamly negative. 
 </p>
   </div>
   <div class="column">
@@ -293,8 +298,9 @@ Leaving me here on my own". Indicating a correct classification of the song.
 
 <h2>Wordclouds per sentiment</h2>
 <p>
-We want to further investigate what makes a song negative or positive and if some specific words indicates and describes the emotional tone of a song. To do so we look at the wordclouds for each sentiment class. 
-  The wordclouds is created based on the top tf-idf words from songs within each sentiment group hence the wordclouds contains the most distincitive words for each sentiment.
+We wish to further investigate what makes a song negative or positive and if some specific words indicates and describes the emotional tone of a song. To do so we look at the wordclouds for each sentiment class. 
+  The wordclouds are created based on the top TF-IDF words from the songs within each sentiment group. Hence the wordclouds contains the most distincitive words 
+  for each sentiment.
 </p>
 
 
@@ -302,14 +308,14 @@ We want to further investigate what makes a song negative or positive and if som
   <img src="image/pos.png" width="530" height="300">                                      
  </p>  
     <p>
- It makes perfectly sence that words like <i>"love"</i>, <i>"baby"</i>, <i>"heart"</i> and <i>"thank"</i> is a part of the positive wordcloud. These are words that we normally assosiate with a positive message. 
+ It makes perfectly sence that words like <i>"love"</i>, <i>"baby"</i>, <i>"heart"</i> and <i>"thank"</i> are a part of the positive wordcloud. These are words that we normally assosiate with a positive message. 
                                                                                                      
  </p>                                   
 <p style="text-align:center;">
 <img src="image/neu.png" width="530" height="300">
  </p>  
     <p>
-As expected the wordcloud for the neutral sentiment class contains words in oppisite emotional directions and quite a lot of words with no sentiment orintations.
+As expected the wordcloud for the neutral sentiment class contains words in opposite emotional directions and quite a lot of words with no sentiment orintations.
  </p>                                           
 
 <p style="text-align:center;">
@@ -317,19 +323,20 @@ As expected the wordcloud for the neutral sentiment class contains words in oppi
  </p>   
  <p>
 Finally the wordcloud for the negative sentiment contains words like <i>"fuck"</i>, <i>"bitch"</i> and <i>"shit"</i> which clearly indicate a negative message.
-   Furthermore the wordcloud contains the word <i>"nigga"</i> which is not a negative word but a word many hihop artist uses in their songs. The hiphoppers songs has often a
-                                                          negative message causing their lyrics to be a part of the negative wordclouds ansd thereby also the word <i>"nigga"</i>.
+   Furthermore the wordcloud contains the word <i>"nigga"</i> which is not a negative word but a word many Hip Hop artists use in their songs. Their songs often have a
+                                                          negative message causing their lyrics to be a part of the negative wordclouds and thereby also the word <i>"nigga"</i>.
  </p>
                                            
  <h2>Sentiment conclusion</h2>
  <p>
- This study has extraced meaningful insights into the sentiment and tone of the songs we listen to. The results clearly proves that some genres tent to 
- have more negative messages,  which we can take with us when we chose our playlist. Furthermore the analysis showed us that most of the top listen songs actually 
- provides us with happy and positive feelings. In the end the study also showed which words represent positivity and negativity in songs. 
+ This study has extracted meaningful insights into the sentiment and tone of the songs people listen to. The results clearly prove that some genres tend to 
+ have more negative messages, which might be worth considering when choosing/creating our next playlist. 
+ Furthermore the analysis showed that most of the top listen songs in the network actually 
+ provides the listener with happy and positive feelings. In the end the study also showed which words represent positivity and negativity in songs. 
  </p>
  
  <p>
- For further investigation of the sentiment within the music industry we recommend a larger dataset with extra genres to provide a more versatile perspective.
- In addition it would be interesting to chose another sentiment analysis tool to compare the models and their results or even train a new model on songs to achieve an even better sentiment model for the research area.
- 
+ For further investigation of the sentiment within the music industry we recommend using a larger dataset with extra genres to provide a more versatile perspective.
+ In addition it would be interesting to choose another sentiment analysis tool to compare the models and their results or even train a new model on songs to
+  achieve an even better sentiment model for the research area.
  </p>
