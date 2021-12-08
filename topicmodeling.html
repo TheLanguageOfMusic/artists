@@ -33,7 +33,7 @@ Before implementing the topic model the most frequent words will be found and an
   When talking about the vocabulary size it is the unique words within the corpus. 
 </p>
 
-<h2>Frequency count befor cleaning</h2>
+<h2>Frequency count before cleaning</h2>
 <p>
 As a preliminary investigation the most frequent words within the corpus will be reviewed to investigate if some topics are revealed. <br> </p>
 
@@ -112,28 +112,28 @@ The  purpose  of  text  preprocessing  is  to  reduce vocabulary size by cleanin
 The four text cleaning steps is described below:
 </p>
 
-<b> &nbsp;&nbsp; 1. Noice</b>
+<b>1. Noice</b>
 <p> 
   The first step in the cleaning process is the noice removal. It begins by transforming all words into lowercase, then removing all stopwords such as 
   "the" and "a",
   followed by a removal of all non-alphabetic characters (!?,.). The last part of the noice removal is to lemmatize the words, which means extracting
   the dictionary form of all words. 
+</p>
 
-
-<b> &nbsp;&nbsp; 2. Rare and short words</b>
 <p>
+<b>2. Rare and short words</b>
 This step is a very simple but efficient text cleaning step in terms of vocabulary reduction as it removes rare and short words. 
   It is safe to say that the words that only appears once in the entire corpus is without importance and can thereby be deleted. 
   Words of only one character is deemed to have no importance for the topics as well. 
 </p>
 
-<b> &nbsp;&nbsp; 3. Only noun, verb and adj</b>
+<b>3. Only noun, verb and adj</b>
 <p> It has been evaluated that nouns, verbs and adjectives carry most information on the message of the songs. 
   All other words that are not labeled ”noun”, ”verb” or "adj" are thereby removed.
 
 </p>
 
-<b> &nbsp;&nbsp; 4. Meaningless words</b>
+<b> 4. Meaningless words</b>
 <p>
 The last cleaning step is to look at the frequent words and remove words with no particulary meaning for the overall messages. 
   This will help to increase the model performance. 
