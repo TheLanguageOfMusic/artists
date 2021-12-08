@@ -21,7 +21,7 @@ The downloaded wikipedia pages is then saved as .txt files named after the <code
 <p>
 
 <p>
-After the retrieval of the wikipedia pages different attributes can be collected from the .txt files, e.g. information about origin, latitude, longitude and years_active. 
+After the retrieval of the wikipedia pages different attributes can be collected from the .txt files, e.g. information about origin, latitude, longitude and the active years of an artist's career. 
 Furthermore the number of followers can be retrived by using the genius API. The final dataset ready for basic statistics and network analysis consists of the following attributes.  
 <p>
    
@@ -40,7 +40,7 @@ Furthermore the number of followers can be retrived by using the genius API. The
 </thead>
 <tbody>
 <tr>
-    <td>name</td> 
+    <td><code>name</code></td> 
     <td>str</td> 
     <td>Name of the artist as written in the wikipedia list</td>
 </tr>
@@ -49,36 +49,36 @@ Furthermore the number of followers can be retrived by using the genius API. The
     <td>This attribute takes the same value as the name attribute, with the exception of links that are redirected. When running the wikipedia API some of the
       the values in the name attributes redirects to a wikipedia page with a different name. Furthermore all spaces are replaced with underscore </td>
 </tr>
-    <td>genre</td> 
+    <td><code>genre</code></td> 
     <td>str</td> 
     <td>The genre that the artist belongs to. It is possible for an artist to be in multiple genres. In such cases this attribute will take on multiple values that are separated by commas</td>
 </tr>
-    <td>origin</td> 
+    <td><code>origin</code></td> 
     <td>str</td> 
     <td>The origin of the artist</td>
 </tr>
-    <td>lat</td> 
+    <td><code>lat</code></td> 
     <td>float</td> 
     <td>The latitude of the origin</td>
 </tr>
-      <td>lon</td> 
+      <td><code>lon</code></td> 
     <td>float</td> 
     <td>The longitude of the origin</td>
 </tr>
-      <td>start_year</td> 
+      <td><code>start_year</code></td> 
     <td>str</td> 
     <td>The starting year of an artists carreer</td>
 </tr>
-   <td>end_year</td> 
+   <td><code>end_year</code></td> 
     <td>str</td> 
     <td>The ending year of an artists carreer. The attribute will be equal to 'Present' if an artist is still active</td>
 </tr>
 </tr>
-   <td>genius_id</td> 
+   <td><code>genius_id</code></td> 
     <td>str</td> 
     <td>The artists id on Genius</td>
 </tr>
-   <td>followers_count</td> 
+   <td><code>followers_count</code></td> 
     <td>str</td> 
     <td>The number of followers that an artist have on Genius</td>
 </tr>
@@ -103,7 +103,7 @@ The size of the dataset is <b>1.079.396 byte large</b>.
 
 <h2>Basic Statistics</h2>
 In the following sections some basic statistics are presented in order to gain knowledge and understanding of the data. As the topic of this study is about 
-artists and their relation across different genres it is of high relevance to look at the genre distribution, active artists over time and..
+artists and their relation across different genres it is of high relevance to look at the genre distribution, active artists over time and...
 
 <p>
 <h3>Genre distribution</h3>
@@ -111,7 +111,8 @@ artists and their relation across different genres it is of high relevance to lo
 {% include genre_dist.html %}
 <p>
    From the above plot it can be seen how the genres <code>HipHop</code> and <code>Country</code> is the largest genres in the data, 
-   while the genre <code>Pop</code> is the smallest.
+   while the genre <code>Pop</code> is the smallest. This is essential to keep in mind for the further analysis, because there naturally will be more 
+   information in the data on e.g. the Hip Hop genre than the Pop genre.
 </p>
 
 
@@ -178,5 +179,5 @@ look at the top 5 artists with most followers within each genre, as it might sup
 From the above plot it can be seen how the HipHop genre in general have more followers than any of the other genres.
 Futhermore it can be seen how the artist with most followers is Kendrick Lamar with 26.291 followers. 
 If this value is compared with his amount of followers on <a href="https://open.spotify.com/artist/2YZyLoL8N0Wb9xBt1NhZWg">Spotify</a> 
-(30.2M monthly listeners) and <a href="https://www.instagram.com/kendricklamar/?hl=da">Instagram</a>(9.7M followers) it is a very small amount. 
+(30.2M monthly listeners) and <a href="https://www.instagram.com/kendricklamar/?hl=da">Instagram</a> (9.7M followers) it is a very small amount. 
 Hence this indicates that people in general do not use Genius to any great extent. 
