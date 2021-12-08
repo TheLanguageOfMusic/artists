@@ -108,6 +108,11 @@ artists and their relation across different genres it is of high relevance to lo
 <p>
 <h3>Genre distribution</h3>
 <p>
+<p>
+To begin with the genre distribution will be presented. It is important to look at the distribution in order to conclude whether or not
+the data is dominated by a genre. 
+</p> 
+   
 {% include genre_dist.html %}
 <p>
    From the above plot it can be seen how the genres <code>HipHop</code> and <code>Country</code> is the largest genres in the data, 
@@ -134,9 +139,13 @@ it can be concluded that HipHop is the largest genre, while Pop is the smallest 
 Futhermore it can be seen how HipHop has a rather rapid increase compared to all other genres.
 
 <p>
-<h3>Followers</h3>
+<h3>Amount of followers on Genius</h3>
 </p>
-
+<p>
+   The amount of followers have been downloaded from Genius using the Genius API. The information can give an indication of which artists are popular and thereby
+   which artists that might dominate the network. To begin with it is interesting to look at the average degree in each genre. From the genre distribution it was clearly
+   HipHop and Country who dominated the data. Thus it is interesting to see if these genres also dominate in terms of average amount of followers. 
+</p>
    
 <table>
 <colgroup>
@@ -171,8 +180,12 @@ Futhermore it can be seen how HipHop has a rather rapid increase compared to all
 </tbody>
 </table>
 
-Based on the above table it can be seen how the average amount of followers on Genius in general is quite low compared to other social medias. It is interesting to
-look at the top 5 artists with most followers within each genre, as it might support this tendency. 
+In terms of average amount of followers it is HipHop that dominate. One should also notice that Pop, who is the smallest genre in terms of artists, actually have 
+the second highest amount of average followers. Furthermore Country have the lowest amount of average followers, dispite the fact that it is the second largest
+genre in the data.   
+
+Based on the above table it can also be seen how the average amount of followers on Genius in general is quite low compared to other social medias. 
+It is interesting to look at the top 5 artists with most followers within each genre, as it might support this tendency. 
 
 {% include followers.html %}
 
@@ -180,4 +193,4 @@ From the above plot it can be seen how the HipHop genre in general have more fol
 Futhermore it can be seen how the artist with most followers is Kendrick Lamar with 26.291 followers. 
 If this value is compared with his amount of followers on <a href="https://open.spotify.com/artist/2YZyLoL8N0Wb9xBt1NhZWg">Spotify</a> 
 (30.2M monthly listeners) and <a href="https://www.instagram.com/kendricklamar/?hl=da">Instagram</a> (9.7M followers) it is a very small amount. 
-Hence this indicates that people in general do not use Genius to any great extent. 
+Hence this indicates that people in general do not use Genius to any great extent.   
