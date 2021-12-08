@@ -94,7 +94,7 @@ subheading: 'Which artics are connected?'
  The Disparity Filter method for extracting the backbone can then be carried out according to the presented technique in 
  <a href="https://www.pnas.org/content/pnas/106/16/6483.full.pdf">this article</a> from 2009 by M. A. Serrano et al. The purpose of The Disparity Filter
  method is to find a significance level <i>&#945;</i> for which a sufficient amount of link-weight is kept in the network, while the total number of edges
- is greatly reduced. In order to select suitable significance level <i>&#945;</i> we look at the figure below. On the left we se <i>N<sub>B</sub>/N<sub>T</sub></i> 
+ is greatly reduced. In order to select a suitable significance level <i>&#945;</i> we look at the figure below. On the left we se <i>N<sub>B</sub>/N<sub>T</sub></i> 
  as a function of <i>W<sub>B</sub>/W<sub>T</sub></i> at different significance levels, where <i>N</i> is nodes and <i>W</i> is weight and the 
  subscripts <i><sub>B</sub></i> and <i><sub>T</sub></i> refers to the backbone and total network repectively. 
  To the right <i>N<sub>B</sub>/N<sub>T</sub></i> is plotted against the number of edges <i>E</i> kept at different significans levels.
@@ -103,8 +103,8 @@ subheading: 'Which artics are connected?'
 {% include alpha_vals.html %}
 
 <p>
-  One could argue for different levels of <i>&#945;</i> as the right one. In this case the weight kept (left plot) is more or less
- proportional to the value of <i>&#945;</i>. Hence one could argue that the significance level <i>&#945;</i> can be chosen by mostly looking at the right graph. 
+  One could argue for different levels of <i>&#945;</i> as the most optimal one. In this case the weight kept (left plot) is more or less
+ proportional to the value of <i>&#945;</i>. Hence it can be considered that the significance level <i>&#945;</i> can be chosen by mostly looking at the right graph. 
  By looking at the right graph the value <i>&#945; = 0.1</i> seems reasonable. With <i>&#945; = 0.1</i> more edges are removed while keeping as many nodes as possible, 
  when compared to higher values of <i>&#945;</i>. Thus for this study <i>&#945; = 0.1</i> is the chosen significance level in the disparity filter. 
  <p>
