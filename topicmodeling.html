@@ -8,13 +8,13 @@ subheading: 'Which topics do we lisen to the most?'
 
 <h2>Topic Modeling goal</h2>
 <p>
-The topic modelling part of this study aim to investigate what lyrics we actually listen to and fills our minds with when we play our favourite songs. 
+The topic modelling part of this study aims to investigate what lyrics people actually listen to and fills their minds with when playing their favourite songs. 
   We want to research if some topics are more popular than others and if the topics depend on the genre. 
-Before implementing the topic model we look at the most frequence words and see if some patterns can be discovered. 
+Before implementing the topic model the most frequent words will be found and analyzed in order to see if patterns can be discovered. 
   Next step is text preprocessing where we clean the data, reduce the vocabulary size and thereby prepare the data for the model. 
   The topic modelling is then implemented on the cleaned data to reveal topics within the songs. 
-  In order to get an even deeper insight into the topics that our model detected we compare the topics size, their sentiment and distribution of genres.
-  The goal is to understand the words we listen to and to discover if the topics and messages from the lyrics depends on our choice of genre.
+  In order to get an even deeper insight into the topics that the model detected we compare the topics' size, their sentiment and distribution of genres.
+  The goal is to understand the words people listen to and to discover if the topics and messages from the lyrics depends on the choice of genre.
   
 </p>
 
@@ -23,18 +23,19 @@ Before implementing the topic model we look at the most frequence words and see 
 <p>
  The study will use Latent DirichletAllocation (LDA) to perform topic modeling on the data.  
   The LDA model consists of two main procedures; generating topics and assigning topics to songs. 
-  Each song will then be described by a. distribution of topics and each topic will be described by a distribution of words.
-  For a topic model to perform well the input data should only contain meaningfull words since unnecessary words adds too much noise for the model to detect patterns.
-  It is therefore very importain to clean the data and reduce corpus size as much as possible before implementing the model. 
+  Each song will then be described by a distribution of topics and each topic will be described by a distribution of words.
+  For a topic model to perform well the input data should only contain meaningfull words since unnecessary words add too much noise for the model to detect patterns.
+  It is therefore very important to clean the data and reduce corpus size as much as possible before implementing the model. 
 </p>   
 
 <p>
-  When talking about a collection of written text the correct term is corpus. Our corpus is the song lyrics in our dataset. When talking about the vocabulary size it is the unique words within the corpus. 
+  When talking about a collection of written text the correct term is corpus. The corpus in this study is the song lyrics in the dataset. 
+  When talking about the vocabulary size it is the unique words within the corpus. 
 </p>
 
 <h2>Frequency count befor cleaning</h2>
 <p>
-As a priliminary investigation we look at the most frequence words within the corpus to investigate if some topics is revealed. <br> </p>
+As a preliminary investigation the most frequent words within the corpus will be reviewed to investigate if some topics are revealed. <br> </p>
 
 <p> Top 10 most common words in the dataset:<br></p>
 
@@ -82,9 +83,9 @@ As a priliminary investigation we look at the most frequence words within the co
 
 
 
-It is clear that the frequenced words are stopwords without meaning. 
+It is clear that the most frequent words are stopwords without meaning. 
 
-   A thorough text cleaning is needed  in order to ensure a qualified topic modeling performance.
+   A thorough text cleaning is needed in order to ensure a qualified topic modeling performance.
 </p>
 
 <h2>Text preprocessing</h2>
@@ -94,10 +95,11 @@ It is clear that the frequenced words are stopwords without meaning.
   
   
 The  purpose  of  text  preprocessing  is  to  reduce vocabulary size by cleaning the corpus. 
-  The  quality  of  the topics found by the topic model is highly dependent on the quality of the input data for the model, this text cleaning step is thereby very importain. 
+  The  quality  of  the topics found by the topic model is highly dependent on the quality of the input data for the model.
+  For this reason this text cleaning step is very important. 
   
-  The corpus will undergo four different cleaning steps in order to produce the input for the topic model.  
-  Below an overview of the full cleaning process can be seen and the resulting vocabulary size after having applied the different cleaning techniques.
+  The corpus will undergo four different cleaning steps as a means to produce the input for the topic model.  
+  An overview of the full cleaning process can be seen below, including the resulting vocabulary size after having applied the different cleaning techniques.
 </p>
 
 <p style="text-align:center;">
@@ -110,40 +112,42 @@ The  purpose  of  text  preprocessing  is  to  reduce vocabulary size by cleanin
 The four text cleaning steps is described below:
 </p>
 
-<p> &nbsp;&nbsp; 1. Noice</p>
+<b> &nbsp;&nbsp; 1. Noice</b>
 <p> 
-  The first step in the cleaning process is the noice removal. It begins by transforming all words into lowercase, than removing all stopwords such as "the" and "a",
-  followed by a removing of all non-alphabetic characters (!?,.). The larst part of the noice removal is to lemmatize the words,
-  this means to extract the dictionary form of all words. 
+  The first step in the cleaning process is the noice removal. It begins by transforming all words into lowercase, then removing all stopwords such as 
+  "the" and "a",
+  followed by a removal of all non-alphabetic characters (!?,.). The last part of the noice removal is to lemmatize the words, which means extracting
+  the dictionary form of all words. 
 
 
-<p> &nbsp;&nbsp; 2. Rare and short words</p>
+<b> &nbsp;&nbsp; 2. Rare and short words</b>
 <p>
-A very simple but efficient text cleaning step in terms of vocabulary reduction, is to remove rare and short words. 
+This step is a very simple but efficient text cleaning step in terms of vocabulary reduction as it removes rare and short words. 
   It is safe to say that the words that only appears once in the entire corpus is without importance and can thereby be deleted. 
   Words of only one character is deemed to have no importance for the topics as well. 
 </p>
 
-<p> &nbsp;&nbsp; 3. Only noun, verb and adj</p>
-<p> It has been evaluated that nouns, verbs and adjectives carry most information on the message of the songs. All other words that are not labeled ”noun”, ”verb” or "adj" are thereby removed.
+<b> &nbsp;&nbsp; 3. Only noun, verb and adj</b>
+<p> It has been evaluated that nouns, verbs and adjectives carry most information on the message of the songs. 
+  All other words that are not labeled ”noun”, ”verb” or "adj" are thereby removed.
 
 </p>
 
-<p> &nbsp;&nbsp; 4. Meaningless words</p>
+<b> &nbsp;&nbsp; 4. Meaningless words</b>
 <p>
-As the larst cleaning step we looked at the frequency words and removed words with no particulary meaning for the overall messages. This will help the model perform. 
+The last cleaning step is to look at the frequent words and remove words with no particulary meaning for the overall messages. 
+  This will help to increase the model performance. 
 </p>
 
 <p>
-The text cleaning of the corpus is now finalized and unimportant words have been removed. The cleaned data is now 
- ready to be used as input for the topic model.  
+By performing these 4 text cleaning steps, the corpus will be ready as input to the topic model.  
 
 </p>
 
 <h2>Frequency count after cleaning</h2>
 
 <p>
-It is of interest to examine the most frequent terms after the cleaning to detecting if possible topics appears now. 
+After the cleaning steps and before performing the Topic Modelling it is of interest to examine the most frequent terms to detect if possible topics now appears. 
 </p>
 
 <p> Top 10 most common words after cleaning<br></p>
@@ -190,15 +194,14 @@ It is of interest to examine the most frequent terms after the cleaning to detec
 </table>
 
 <p>
- As hoped the top frequency words for the cleaned data indicates and reveals some possible topics, both some romance, wealth and hate.
+ As hoped the top frequency words for the cleaned data indicate and reveal some possible topics, both some romance, wealth and hate.
   </p>
 
 <h2>Topic Modeling</h2>
 
 <p>
-   The topic model is implemented to generate topics and label each song with the most appropriate topic. 
-  The model determines the optimal number of topics to represent the lyrics corpus based on
-   a measure of coherence. <br></p>
+   The topic model is now implemented to generate topics and then to label each song with the most appropriate topic. 
+  Based on a measure of coherence, the model determines the optimal number of topics to represent the lyrics corpus. <br></p>
   
   <p style="text-align:center;">
   <img src="image/cor.png" width="700" hight="500" >                                      
@@ -207,7 +210,7 @@ It is of interest to examine the most frequent terms after the cleaning to detec
   <p>
     From the coherence measure the optimal number of topics is n=4.
 
-   The LDA generated topics can be seen below including relevant keywords, each topics respective average sentiment score and the number of songs classified for each topic. </p>
+   The LDA generated topics can be seen in the table below including relevant keywords, average sentiment score and the number of songs classified for each topic. </p>
 
 <table>
   <colgroup>
@@ -254,10 +257,11 @@ It is of interest to examine the most frequent terms after the cleaning to detec
 </table>
 
 <p>
-  The table above shows that topic 3 is the most negative topic(lowest sentiment score) and topic 4 is the most positive(highest sentiment score). 
-  This does allign with the keywords for each of the topics and the fact that topic 3 has the highest portion of hiphop songs which from the sentiment analysis was the genre with most negative songs. 
+  The table above shows that topic 3 is the most negative topic (lowest sentiment score) and topic 4 is the most positive (highest sentiment score). 
+  This is in allignment with the keywords for each of the topics. Moreover topic 3 has the highest portion of hiphop songs which
+  from the sentiment analysis was the genre with most negative songs. 
   Furthermore it can be seen that the largest topic is topic 4 which is also the most positive topic. 
-  This alligns with the results from the sentiment analysis that showed mos positive songs within the music industry. 
+  This is in allignment with the results from the sentiment analysis, as it showed that the majority of all songs in the dataset were positive.
 </p>
   
 
@@ -265,11 +269,14 @@ It is of interest to examine the most frequent terms after the cleaning to detec
 
 
 <p>
-  To evaluate the topic model performance we have used the below interactive LDA visualizer. With this tool we have examine how the model generated the topics. 
-  The chart to the left illustrate how separated the classes are
-    whereas the chart to the right shows the words that reprsents the topics ordered by relevance. The right chart depends on the tunable λ-parameter which is based on TF-IDF.
-  This means that a high value of λ corresponds to importance by term frequency. If the λ-value is decreased there will be given less importance to frequently used words. 
-  You can click on the LDA visulizer below and see the words for each topic. Furthermore you can change the λ-value as you please to discover words representing each topic. 
+  To evaluate the topic model performance the interactive LDA visualizer have been used. With this tool we have examined how the model generated the topics. 
+  In the chart below to the left it is illustrated how separated the classes are
+  whereas the chart to the right shows the words that represents the topics ordered by relevance. The right chart depends on the
+  tunable λ-parameter which is based on TF-IDF.
+  This means that a high value of λ corresponds to high term frequency. If the λ-value is decreased there will be given less importance to 
+  frequently used words. Consequently a high value of λ showw the TF, while a low value of λ shows the TF-IDF. 
+  You can click on the LDA visulizer below and see the words for each topic. Furthermore you can change the λ-value as you please to
+  discover words representing each topic. 
 
 </p>
 
@@ -278,20 +285,21 @@ It is of interest to examine the most frequent terms after the cleaning to detec
 
 
 <p>
- From the inteactive LDA visulaizer we discover that the four topic is nicely seperated, indicating that the cleaning process went well and the model has created some good topic to describe the data.
+ From the inteactive LDA visualizer it can be seen how the four topics are nicely seperated, indicating that the cleaning process went well 
+ and the model has created some good topics describing the data.
   
 </p>
 
 <p>
  Another way to evaluate the model performance is to look into some lyrics and evaluate if they have been classified correctly.  
-  We do  this by taking a random sample of three songs and determine if  they match the topic class they were put in. 
+ This is done by taking a random sample of three songs and determining if they match the topic class they were put in. 
   </p>
 
 <div class="row">
   <div class="column">
     <b> Too Good At Goodbyes by Sam Smith- Topic 2</b>
 <p> It is a breakup song about getting used to being dumped and how previous experiences in  relationships makes him
-  protect himself. This falls perfectly into the topic <i>"Ups and downs in romance"</i> and the songs is thereby perfectly classified. 
+  protect himself. This falls perfectly into the topic <i>"Ups and downs in romance"</i> and the song is thereby perfectly classified. 
     </p>
   </div>
   <div class="column">
@@ -332,35 +340,38 @@ It is of interest to examine the most frequent terms after the cleaning to detec
 
 <h2>Wordclouds per genre</h2>
 <p>
-  As a last investigation we wanted to see if we could spot which topics each genre contained based on their wordclouds. 
-The size of the words represents their relative relevance.
+  As a last investigation we wish to see if we can spot which topics each genre contains based on their wordclouds. 
+The size of the words represent their relative relevance.
 </p>
 <p style="text-align:center;">
   <img src="image/genreWC.png" width="1000" height="360">                                      
 </p>
 
 <p>
-  From the wordclouds it is clear to see that Pop and RnB are very much alike with words like <i>"love"</i> and <i>"baby"</i> being with signitifact importance.
-  From our network analysis we saw the same, that many Pop artist also make RnB music and vise verse. These two genre are thereby close connected. 
-  The words representing HipHop is word there also described the topic "Violent gangster" and "NSFW". 
+  From the wordclouds it is clear to see that Pop and RnB are very much alike with significant words like <i>"love"</i> and <i>"baby"</i>.
+  From our network analysis we saw the same tendency, namely that many Pop artist also make RnB music and vice versa. These two genres are thereby close connected. 
+  The words representing HipHop are also described in the topic "Violent gangster" and "NSFW". 
   This is as expected since HipHop accounted for the largest proportion of each of the topics (respectively 26% and 48%). 
-  When it comes to the last two genres, Rock and Country, the words is more even distributed between the topics which relates to their distributions in the topic modeling analysis.
-  Furthermore Country has very few negatively charged words which fits the results from the sentiment analysis namely that country is the genre with the lowest proportion of negative messages. 
+  When it comes to the last two genres, Rock and Country, the words are more evenly distributed between the topics. This relates to their distributions
+  in the topic modeling analysis. Furthermore Country has very few negatively charged words which fits the results from the sentiment analysis,
+  namely that country is the genre with the lowest proportion of negative messages. 
 </p>
 
                                            
 <h2>Topic Modeling conclusion</h2>
 
 <p>
-This study provides an understanding of what the words we listen to is all about. The topic model detected different topics within songs and examines which topics
-  has the higest/lowest sentiment score indicating the emotional influence of the topic. Furthermore the results shows which topic has the highest reprsentstion and
-  what genre the topics occurs mostly in. 
-  In the end there were no doubt that the largest topic is "Life experience" which makes sence since this topic is a very broad topic including many kind of songs.
-  Furthermore it was as expected thar HipHop accounted for almost half of the songs in the topic "NSFW"(Not Suitable For Work) which were the most negative topic. 
-  The analysis therefore supports manys assumptions that HipHop is an aggresive genre. </p>   
+This study provides an understanding of what the songs people listen to is all about. The topic model detected different topics within 
+  songs. It also examined which topics that had the higest/lowest sentiment score indicating the emotional influence of the topic. 
+  Furthermore the results showed which topic has the highest representation and what genre the topics mostly occurs.
+  In the end there were no doubt that the largest topic is "Life experience" which makes sence since this topic is a very broad topic
+  including a broad variety of songs.
+  Furthermore HipHop accounted for almost half of the songs in the topic "NSFW"(Not Suitable For Work) which were the most negative topic. 
+  The analysis therefore supports manys assumptions about Hip Hop being an aggresive genre. </p>   
   
 <p>
-  With this topic part of the study you are provided with a tool to understand what kind of music you should chose depending on the topic you want to listen to and what kind of emotinal tone the topic has. 
+  With this topic part of the study you are provided with a tool to understand what kind of music you 
+  should choose depending on the topic you want to listen to and what kind of emotional tone the topic has. 
 </p>   
 
 
