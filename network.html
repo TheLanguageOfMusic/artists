@@ -25,10 +25,14 @@ subheading: 'Which artics are connected?'
 <h2>Network analysis goal</h2>
 
 <p>
- The network analysis provided on this page seeks to answer some questions about the linkage of music artists in and between different genres. Firstly, what 
- main characteristics that exists for the network - including what attributes that can help to describe the artists and their connections. Also, we explore what the so called Backbone
- of the network looks like is, and how a backbone-analysis will change the network. In the end communities are created in an attempt to figure out, how well the 
- network actually represents common assumptions of linkages between music artists.
+ In this part of the study the network will be created and analyzed. The network will be created such that nodes represents artists and links represents
+ links between wikipedia pages. If an artist's page links to another artist's page these nodes will share a directed link. Thus the initial network is 
+ directed. From the initial network the Giant Connected Component (GCC) will be extracted and analyzed. Due to a high degree density a backbone analysis with a disparity
+ filter will be carried out. The result of the backbone analysis is a smaller network, where only significant links appear. 
+ The backbone network will be used for further analysis. Due to the way that the links are weighted in the backbone analysis, the network needs to be undirected. 
+ Therefore, the network is be saved as an undirected network, which forms the foundation of the rest of the analysis.
+ In the end communities are created in an attempt to figure out, how well the network actually 
+ represents common assumptions of linkages between music artists.
 </p>
 
 
@@ -36,7 +40,7 @@ subheading: 'Which artics are connected?'
 <p>
  On the <a href="https://thelanguageofmusic.github.io/artists/Data.html">Data Description</a> page, it is explained in detail, how Wikipedia pages and Genius is used to collect information on each of the artists in the 
  genres: Pop, Hip Hop, RnB, Rock & Country. Below we see the first iteration of the network built. Here the Giant Connected Component (GCC) has been extracted to focus 
- on the most interconnected artists. This is shown in the network visualization below. The network consists of almost 6000 nodes and more than 68000 links. 
+ on the most interconnected artists. This is shown in the network visualization below. The network consists of <b>5942</b> nodes and <b>68117 links</b>. 
 </p>
 
 <p style="text-align:center;">
@@ -48,12 +52,12 @@ subheading: 'Which artics are connected?'
  artists respectively, are equally isolated in different parts of the network graph. The RnB artists are located very close to the Hip Hop artist, which makes 
  sense when relating it to the common conception about the similarities in these genres. Also, it has been discovered for the yellow nodes – namely, the artists 
  contained in multiple genres – that most of these artists are exactly in both the Hip Hop and RnB categories. When it comes to the Pop artists, their position in 
- the middle of the network graph also conceptually matches with the fact, that many Pop artists will use elements from different genres to be “popular” for everyone.
+ the middle of the network graph also conceptually matches with the fact, that many Pop artists will use elements from different genres in an attempt to be “popular” for everyone.
  
  <br><br>
  
  Next we look into the degree distribution of the network. In the figure below this is shown for each of the genres. If you want to compare the genres separately, 
- then click their respective name in the legend on the left. Also, keep in mind the total number of artists in each genre shown on the <a href="https://thelanguageofmusic.github.io/artists/Data.html">Data</a> page when 
+ then click their respective name in the legend on the right. Also, keep in mind the total number of artists in each genre shown on the <a href="https://thelanguageofmusic.github.io/artists/Data.html">Data</a> page when 
  looking at the scale-difference here.
 </p>
 
@@ -61,7 +65,8 @@ subheading: 'Which artics are connected?'
 
 <p>
  The degree distribution of the genres seems most reminiscent of a power-law distribution, but the genres Hip Hop and Rock could also be fitted with a Poisson 
- distribution. It is also noticeable that there clearly are a few artists in each category with a lot more links than the rest of the artists. To inspect these 
+ distribution. It is also noticeable that there clearly are a few artists in each category with a lot more links than the rest of the artists, which indicates a
+ presence of hubs. To inspect these 
  a bit more, the 15 most connected artists are shown in the table below. As it happens these names coincide with some of the most popular artists of all time.
 </p>
 
@@ -69,7 +74,8 @@ subheading: 'Which artics are connected?'
 
 
 <p>
- Even though there are clear more nodes with few connections than many, the average degree of the network is above 19. This, together with the fact that the 
+ The average degree of the network is \<k\>=19. This is despite the fact that the network consist of a few hubs, such that a small portion of the total nodes have 
+ many connections, while the rest have only a very few connections. This, together with the fact that the 
  network is visually very difficult to inspect, have led to a Backbone Analysis of the network.
 </p>
 
@@ -79,24 +85,31 @@ subheading: 'Which artics are connected?'
 
 <p>
  In order to conduct the backbone analysis, the links of the network should be weighted in a way that represents the importance of the indivial links. For this 
- analysis the weight of a link is chose to be equal to the number of times it is included on the wiki pages - in both directions. This means that if node 
- <i>i</i> mentions node <i>j</i> two times, and node <i>j</i> mentions node <i>i</i> once, then the resulting weight of the link will be 3. This leads to the conclusion, that the 
- network must be undirected for this weighting to be possible.
+ analysis the weight of a link is chosen to be equal to the number of times it is included on the wiki pages - in both directions. This means that if node 
+ <i>i</i> mentions node <i>j</i> two times, and node <i>j</i> mentions node <i>i</i> once, then the resulting weight of the link will be 3. 
+ This leads to the conclusion, that the network must be undirected for this weighting to be possible.
  
  <br><br>
  
- The method for extracting the backbone can then be carried out according to the presented technique in 
- <a href="https://www.pnas.org/content/pnas/106/16/6483.full.pdf">this article</a> from 2009 by M. A. Serrano et al. The purpose of the method is find a significance 
- level <i>&#945;</i> for which a sufficient amount of link-weight is kept in the network, while the total number of edges is greatly reduced.
- In order to select suitable significance level <i>&#945;</i> we look at the figure below. On the left we se <i>N<sub>B</sub>/N<sub>T</sub></i> 
- as a function of <i>W<sub>B</sub>/W<sub>T</sub></i> at different significance levels, where <i>N</i> is nodes and <i>W</i> is weight and the subscripts <i><sub>B</sub></i> and <i><sub>T</sub></i> refers to the backbone and total network repectively. 
- To the right we se <i>N<sub>B</sub>/N<sub>T</sub></i> against the number of edges <i>E</i> kept at different significans levels.
+ The Disparity Filter method for extracting the backbone can then be carried out according to the presented technique in 
+ <a href="https://www.pnas.org/content/pnas/106/16/6483.full.pdf">this article</a> from 2009 by M. A. Serrano et al. The purpose of The Disparity Filter
+ method is to find a significance level <i>&#945;</i> for which a sufficient amount of link-weight is kept in the network, while the total number of edges
+ is greatly reduced. In order to select suitable significance level <i>&#945;</i> we look at the figure below. On the left we se <i>N<sub>B</sub>/N<sub>T</sub></i> 
+ as a function of <i>W<sub>B</sub>/W<sub>T</sub></i> at different significance levels, where <i>N</i> is nodes and <i>W</i> is weight and the 
+ subscripts <i><sub>B</sub></i> and <i><sub>T</sub></i> refers to the backbone and total network repectively. 
+ To the right <i>N<sub>B</sub>/N<sub>T</sub></i> is plotted against the number of edges <i>E</i> kept at different significans levels.
 </p>
 
 {% include alpha_vals.html %}
 
 <p>
-  It is obviously a bit subjective decision that have to be made on which significance level that is be chosen. But we argue in this case, that because the weight kept 
+  One could argue for different levels of <i>&#945;</i> as the right one. In this case the weight kept (left plot) is more or less
+ proportional to the value of <i>&#945;</i>. Hence one could argue that the significance level <i>&#945;</i> can be chosen by mostly looking at the right graph. 
+ By looking at the right graph the value <i>&#945; = 0.1</i> seems reasonable. With <i>&#945; = 0.1</i> more edges are removed while keeping as many nodes as possible, 
+ when compared to higher values of <i>&#945;</i>. Thus for this study <i>&#945; = 0.1</i> is the chosen significance level in the disparity filter. 
+ <p>
+ It is obviously a bit subjective decision that have to be made on which significance level that is be chosen. But we argue in this case, 
+ that because the weight kept 
  is more or less directly proportional to the value of <i>&#945;</i>, then we can choose from looking mostly at the right graph of the edges kept. Here it is clear 
  that there up to <i>&#945; = 0.1</i> we get to remove more edges than at higher <i>&#945;</i> values - therefore this is the chosen significance level.
  
